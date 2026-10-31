@@ -1,0 +1,1 @@
+"""Flask blueprints for the LocalLens API."""

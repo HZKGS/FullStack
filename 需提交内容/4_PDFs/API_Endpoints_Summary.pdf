@@ -1,0 +1,137 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+4 0 obj
+<< /Length 2773 >>
+stream
+BT
+/F1 9 Tf
+12 TL
+50 805 Td
+(# API Endpoints) Tj T*
+() Tj T*
+(Base URL: `http://127.0.0.1:5000`) Tj T*
+() Tj T*
+(## Authentication header) Tj T*
+() Tj T*
+(Protected requests require:) Tj T*
+() Tj T*
+(```http) Tj T*
+(Authorization: Bearer <jwt_token>) Tj T*
+(```) Tj T*
+() Tj T*
+(## Required endpoints) Tj T*
+() Tj T*
+(| Method | URL | Permission | Success | Notes |) Tj T*
+(| :--- | :--- | :--- | :--- | :--- |) Tj T*
+(| GET | `/api/v1.0/businesses` | Public | 200 | `pn`, `ps`, `q`, repeated `category`,) Tj T*
+(`town`, `min_rating`, `max_rating`, `active`, `sort` |) Tj T*
+(| POST | `/api/v1.0/businesses` | Authenticated | 201 | Validates required fields and) Tj T*
+(returns `Location` |) Tj T*
+(| GET | `/api/v1.0/businesses/<id>` | Public | 200 | Invalid ObjectId 400; missing) Tj T*
+(404 |) Tj T*
+(| PUT | `/api/v1.0/businesses/<id>` | Authenticated | 200 | Partial allow-listed) Tj T*
+(update |) Tj T*
+(| DELETE | `/api/v1.0/businesses/<id>` | Admin | 204 | Cascades review deletion |) Tj T*
+(| GET | `/api/v1.0/businesses/<id>/reviews` | Public | 200 | `pn`, `ps`, `rating`,) Tj T*
+(`sort` |) Tj T*
+(| POST | `/api/v1.0/businesses/<id>/reviews` | Authenticated | 201 | One review per) Tj T*
+(user/business |) Tj T*
+(| GET | `/api/v1.0/businesses/<id>/reviews/<rid>` | Public | 200 | Review must belong) Tj T*
+(to business |) Tj T*
+(| PUT | `/api/v1.0/businesses/<id>/reviews/<rid>` | Owner/Admin | 200 | Ownership is) Tj T*
+(checked |) Tj T*
+(| DELETE | `/api/v1.0/businesses/<id>/reviews/<rid>` | Admin | 204 | Recomputes) Tj T*
+(business rating |) Tj T*
+(| GET | `/api/v1.0/login` | Public | 200 | Compatibility endpoint; query or JSON) Tj T*
+(credentials |) Tj T*
+(| GET | `/api/v1.0/logout` | Authenticated | 200 | Adds JWT `jti` to blacklist |) Tj T*
+() Tj T*
+(## Additional endpoints) Tj T*
+() Tj T*
+(| Method | URL | Permission | Success | Notes |) Tj T*
+(| :--- | :--- | :--- | :--- | :--- |) Tj T*
+(| POST | `/api/v1.0/login` | Public | 200 | Preferred login form; JSON body |) Tj T*
+(| POST | `/api/v1.0/users` | Public | 201 | Non-admin registration |) Tj T*
+(| GET | `/api/v1.0/businesses/advanced` | Public | 200 | `$match -> $project ->) Tj T*
+($unwind -> $match -> $sort -> $skip -> $limit` |) Tj T*
+(| GET | `/api/v1.0/businesses/stats/by-town` | Public | 200 | `$group` count and) Tj T*
+(average rating by town |) Tj T*
+(| GET | `/api/v1.0/businesses/nearby` | Public | 200 | `longitude`, `latitude`,) Tj T*
+(`max_distance`, `min_distance` in metres |) Tj T*
+(| GET | `/health` | Public | 200 | Process-level health only |) Tj T*
+() Tj T*
+(## Example login) Tj T*
+() Tj T*
+(```http) Tj T*
+(POST /api/v1.0/login) Tj T*
+(Content-Type: application/json) Tj T*
+() Tj T*
+({"username":"admin","password":"<local password>"}) Tj T*
+(```) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 606 >>
+stream
+BT
+/F1 9 Tf
+12 TL
+50 805 Td
+(```json) Tj T*
+({) Tj T*
+(  "token": "<jwt>",) Tj T*
+(  "token_type": "Bearer",) Tj T*
+(  "expires_in": 28800,) Tj T*
+(  "user": {"id":"...","username":"admin","email":"admin@locallens.local","admin":true) Tj T*
+(}) Tj T*
+(}) Tj T*
+(```) Tj T*
+() Tj T*
+(## Error convention) Tj T*
+() Tj T*
+(```json) Tj T*
+({"error":"Validation failed","details":["..."]}) Tj T*
+(```) Tj T*
+() Tj T*
+(Routine status codes: 400 validation, 401 missing/invalid/revoked token, 403) Tj T*
+(insufficient role/ownership, 404 missing resource, 409 duplicate) Tj T*
+(business/username/review.) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Title (LocalLens API Endpoints Summary) /Producer (LocalLens submission builder) /CreationDate (D:20261030164308) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000132 00000 n 
+0000000195 00000 n 
+0000003020 00000 n 
+0000003156 00000 n 
+0000003813 00000 n 
+0000003949 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R /Info 8 0 R >>
+startxref
+4085
+%%EOF

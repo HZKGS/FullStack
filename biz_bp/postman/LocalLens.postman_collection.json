@@ -1,0 +1,409 @@
+{
+  "info": {
+    "name": "LocalLens API",
+    "description": "Ordered smoke test for LocalLens authentication, CRUD, aggregation and geospatial endpoints. Set admin_username/admin_password before running.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:5000" },
+    { "key": "admin_username", "value": "admin" },
+    { "key": "admin_password", "value": "REPLACE_ME" },
+    { "key": "jwt_token", "value": "" },
+    { "key": "run_id", "value": "" },
+    { "key": "business_id", "value": "" },
+    { "key": "review_id", "value": "" },
+    { "key": "sample_business_id", "value": "" }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (!pm.collectionVariables.get('run_id')) {",
+          "  pm.collectionVariables.set('run_id', Date.now().toString());",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Health",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('health payload', () => pm.expect(pm.response.json().status).to.eql('ok'));"
+            ]
+          }
+        }
+      ],
+      "request": { "method": "GET", "header": [], "url": "{{base_url}}/health" }
+    },
+    {
+      "name": "02 Login Admin",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('token returned', () => pm.expect(body.token).to.be.a('string').and.not.empty);",
+              "pm.collectionVariables.set('jwt_token', body.token);",
+              "pm.collectionVariables.set('run_id', Date.now().toString());"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{admin_username}}\",\n  \"password\": \"{{admin_password}}\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{base_url}}/api/v1.0/login"
+      }
+    },
+    {
+      "name": "03 List Businesses",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('pagination metadata', () => { pm.expect(body.page).to.eql(1); pm.expect(body.items).to.be.an('array'); });",
+              "if (body.items.length) { pm.collectionVariables.set('sample_business_id', body.items[0]._id); }"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses?pn=1&ps=5&sort=-rating"
+      }
+    },
+    {
+      "name": "04 Create Business",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', () => pm.response.to.have.status(201));",
+              "const body = pm.response.json();",
+              "pm.test('business id returned', () => pm.expect(body._id).to.be.a('string'));",
+              "pm.collectionVariables.set('business_id', body._id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Postman Test Cafe {{run_id}}\",\n  \"town\": \"Belfast\",\n  \"address\": \"1 Test Street\",\n  \"postcode\": \"BT1 1AA\",\n  \"categories\": [\"Cafe\", \"Bakery\"],\n  \"description\": \"Created by the ordered Postman smoke test.\",\n  \"location\": {\"type\": \"Point\", \"coordinates\": [-5.93, 54.5973]},\n  \"price_level\": 2,\n  \"active\": true\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{base_url}}/api/v1.0/businesses"
+      }
+    },
+    {
+      "name": "05 Get Created Business",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('same business', () => pm.expect(pm.response.json()._id).to.eql(pm.collectionVariables.get('business_id')));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}"
+      }
+    },
+    {
+      "name": "06 Update Business",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('description updated', () => pm.expect(pm.response.json().description).to.include('updated'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Updated by the ordered Postman smoke test.\",\n  \"price_level\": 3\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}"
+      }
+    },
+    {
+      "name": "07 Advanced Aggregation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('required pipeline order', () => pm.expect(body.pipeline_stages).to.eql(['$match','$project','$unwind','$match','$sort','$skip','$limit']));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/advanced?pn=1&ps=5&min_rating=1"
+      }
+    },
+    {
+      "name": "08 Stats By Town",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('items array', () => pm.expect(pm.response.json().items).to.be.an('array'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/stats/by-town?limit=20"
+      }
+    },
+    {
+      "name": "09 Nearby Businesses",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('distance field', () => { const items = pm.response.json().items; if (items.length) { pm.expect(items[0]).to.have.property('distance_m'); } });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/nearby?longitude=-5.9301&latitude=54.5973&max_distance=10000&pn=1&ps=5"
+      }
+    },
+    {
+      "name": "10 Create Review",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', () => pm.response.to.have.status(201));",
+              "const body = pm.response.json();",
+              "pm.test('review id returned', () => pm.expect(body._id).to.be.a('string'));",
+              "pm.collectionVariables.set('review_id', body._id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rating\": 5,\n  \"text\": \"Created by the ordered Postman smoke test.\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}/reviews"
+      }
+    },
+    {
+      "name": "11 Get Created Review",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('same review', () => pm.expect(pm.response.json()._id).to.eql(pm.collectionVariables.get('review_id')));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}"
+      }
+    },
+    {
+      "name": "12 Update Review",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('rating updated', () => pm.expect(pm.response.json().rating).to.eql(4));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rating\": 4,\n  \"text\": \"Updated by the ordered Postman smoke test.\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}"
+      }
+    },
+    {
+      "name": "13 List Reviews",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));",
+              "pm.test('review visible', () => { const ids = pm.response.json().items.map(x => x._id); pm.expect(ids).to.include(pm.collectionVariables.get('review_id')); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}/reviews?pn=1&ps=20&sort=-created_at"
+      }
+    },
+    {
+      "name": "14 Delete Review",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 204', () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}"
+      }
+    },
+    {
+      "name": "15 Delete Business",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 204', () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/businesses/{{business_id}}"
+      }
+    },
+    {
+      "name": "16 Logout",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/logout"
+      }
+    },
+    {
+      "name": "17 Verify Revoked Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 401', () => pm.response.to.have.status(401));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1.0/logout"
+      }
+    }
+  ]
+}

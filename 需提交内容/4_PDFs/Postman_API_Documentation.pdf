@@ -1,0 +1,126 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+4 0 obj
+<< /Length 2710 >>
+stream
+BT
+/F1 9 Tf
+12 TL
+50 805 Td
+(LocalLens API Documentation) Tj T*
+(======================================================================) Tj T*
+(Base URL: http://127.0.0.1:5000) Tj T*
+(Auth: Authorization: Bearer <jwt> for protected routes) Tj T*
+() Tj T*
+() Tj T*
+([GET] {{base_url}}/health) Tj T*
+(Name: 01 Health) Tj T*
+() Tj T*
+([POST] {{base_url}}/api/v1.0/login) Tj T*
+(Name: 02 Login Admin) Tj T*
+(  Body: {   "username": "{{admin_username}}",   "password": "{{admin_password}}" }) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses?pn=1&ps=5&sort=-rating) Tj T*
+(Name: 03 List Businesses) Tj T*
+() Tj T*
+([POST] {{base_url}}/api/v1.0/businesses) Tj T*
+(Name: 04 Create Business) Tj T*
+(  Body: {   "name": "Postman Test Cafe {{run_id}}",   "town": "Belfast",   "address":) Tj T*
+("1 Test Street",   "postcode": "BT1 1AA",   "categories": ["Cafe", "Bakery"],  ) Tj T*
+("description": "Created by the ordered Postman smoke test.",   "location": {"type":) Tj T*
+("Point", "coordinates": [-5.93, 54.5973]},   "price_level") Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/{{business_id}}) Tj T*
+(Name: 05 Get Created Business) Tj T*
+() Tj T*
+([PUT] {{base_url}}/api/v1.0/businesses/{{business_id}}) Tj T*
+(Name: 06 Update Business) Tj T*
+(  Body: {   "description": "Updated by the ordered Postman smoke test.",  ) Tj T*
+("price_level": 3 }) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/advanced?pn=1&ps=5&min_rating=1) Tj T*
+(Name: 07 Advanced Aggregation) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/stats/by-town?limit=20) Tj T*
+(Name: 08 Stats By Town) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/nearby?longitude=-5.9301&latitude=54.5973&max_) Tj T*
+(distance=10000&pn=1&ps=5) Tj T*
+(Name: 09 Nearby Businesses) Tj T*
+() Tj T*
+([POST] {{base_url}}/api/v1.0/businesses/{{business_id}}/reviews) Tj T*
+(Name: 10 Create Review) Tj T*
+(  Body: {   "rating": 5,   "text": "Created by the ordered Postman smoke test." }) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}) Tj T*
+(Name: 11 Get Created Review) Tj T*
+() Tj T*
+([PUT] {{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}) Tj T*
+(Name: 12 Update Review) Tj T*
+(  Body: {   "rating": 4,   "text": "Updated by the ordered Postman smoke test." }) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/businesses/{{business_id}}/reviews?pn=1&ps=20&sort=-creat) Tj T*
+(ed_at) Tj T*
+(Name: 13 List Reviews) Tj T*
+() Tj T*
+([DELETE] {{base_url}}/api/v1.0/businesses/{{business_id}}/reviews/{{review_id}}) Tj T*
+(Name: 14 Delete Review) Tj T*
+() Tj T*
+([DELETE] {{base_url}}/api/v1.0/businesses/{{business_id}}) Tj T*
+(Name: 15 Delete Business) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 347 >>
+stream
+BT
+/F1 9 Tf
+12 TL
+50 805 Td
+([GET] {{base_url}}/api/v1.0/logout) Tj T*
+(Name: 16 Logout) Tj T*
+() Tj T*
+([GET] {{base_url}}/api/v1.0/logout) Tj T*
+(Name: 17 Verify Revoked Token) Tj T*
+() Tj T*
+(Generated from postman/LocalLens.postman_collection.json.) Tj T*
+(Postman can also publish these docs directly \(View in Postman -> Publish\).) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Title (LocalLens API Documentation) /Producer (LocalLens submission builder) /CreationDate (D:20261030164308) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000132 00000 n 
+0000000195 00000 n 
+0000002957 00000 n 
+0000003093 00000 n 
+0000003491 00000 n 
+0000003627 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R /Info 8 0 R >>
+startxref
+3759
+%%EOF

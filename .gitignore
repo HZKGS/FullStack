@@ -1,0 +1,7 @@
+.mongo/
+biz_bp/venv/
+biz_bp/.env.local
+**/__pycache__/
+*.py[cod]
+biz_bp/tmp/
+.runtime/

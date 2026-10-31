@@ -1,0 +1,108 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Length 2521 >>
+stream
+BT
+/F2 8 Tf
+10 TL
+50 805 Td
+(# Test Evidence) Tj T*
+() Tj T*
+(## Date) Tj T*
+() Tj T*
+(2026-10-18 \(Asia/Shanghai\)) Tj T*
+() Tj T*
+(## Environment) Tj T*
+() Tj T*
+(- Project root: `G:\\FullStack`) Tj T*
+(- Flask app: `G:\\FullStack\\biz_bp`) Tj T*
+(- Python environment: `G:\\FullStack\\biz_bp\\venv`) Tj T*
+(- MongoDB: project-local `mongod` 9.0.4 at `G:\\FullStack\\.mongo\\server`) Tj T*
+(- Database: `locallens`) Tj T*
+(- Data: 120 businesses, 600 reviews, 4 demo users) Tj T*
+() Tj T*
+(## Automated smoke test) Tj T*
+() Tj T*
+(Command:) Tj T*
+() Tj T*
+(```powershell) Tj T*
+(Set-Location 'G:\\FullStack\\biz_bp') Tj T*
+(.\\scripts\\run_smoke_test.ps1) Tj T*
+(```) Tj T*
+() Tj T*
+(Result:) Tj T*
+() Tj T*
+(```text) Tj T*
+(MongoDB is already listening on 127.0.0.1:27017.) Tj T*
+(test_end_to_end \(tests.test_api_smoke.LocalLensApiSmokeTest.test_end_to_end\) ... ok) Tj T*
+(----------------------------------------------------------------------) Tj T*
+(Ran 1 test in 1.314s) Tj T*
+() Tj T*
+(OK) Tj T*
+(```) Tj T*
+() Tj T*
+(Coverage includes authentication, JWT blacklist, business CRUD, review CRUD, role/ownership checks,) Tj T*
+(CORS, duplicate/unauthorized responses, pagination, multi-value category filtering, aggregation,) Tj T*
+(geospatial query and validation errors.) Tj T*
+() Tj T*
+(## Live HTTP check) Tj T*
+() Tj T*
+(The Flask app was started on port 5002 for an isolated real-HTTP check and stopped afterwards. The) Tj T*
+(flow created a temporary business and review, exercised a CORS request, deleted both resources,) Tj T*
+(logged out and confirmed the revoked token returned 401.) Tj T*
+() Tj T*
+(Observed summary:) Tj T*
+() Tj T*
+(```text) Tj T*
+(live_http=passed cors=http://localhost:4200 revoked_token_401=True) Tj T*
+(```) Tj T*
+() Tj T*
+(## Postman) Tj T*
+() Tj T*
+(- Collection: `postman/LocalLens.postman_collection.json`) Tj T*
+(- Requests: 17) Tj T*
+(- JSON validation: passed) Tj T*
+(- Live Postman Desktop run: pending) Tj T*
+(- Reason: Postman Desktop is installed, but no Postman CLI/Newman command is available on `PATH`.) Tj T*
+() Tj T*
+(## Security note) Tj T*
+() Tj T*
+(No password, JWT secret or token is recorded in this evidence file. Local credentials live only in) Tj T*
+(the gitignored `G:\\FullStack\\biz_bp\\.env.local` file.) Tj T*
+() Tj T*
+(Note: this printout combines the automated Flask test run with the Postman) Tj T*
+(collection status. A live Postman Desktop run must still be executed and) Tj T*
+(its Collection Runner output/export attached as evidence.) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Title (LocalLens Automated Test Results) /Producer (LocalLens submission builder) /CreationDate (D:20261030164308) >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000132 00000 n 
+0000000189 00000 n 
+0000002762 00000 n 
+0000002898 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info 6 0 R >>
+startxref
+3035
+%%EOF

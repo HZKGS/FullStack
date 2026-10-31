@@ -1,0 +1,1820 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R] /Count 19 >>
+endobj
+4 0 obj
+<< /Length 3898 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(====================================================================================================) Tj T*
+(FILE: biz_bp/app.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """LocalLens Flask application entry point.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | import os) Tj T*
+(   6 |) Tj T*
+(   7 | from flask import Flask, jsonify) Tj T*
+(   8 | from flask_cors import CORS) Tj T*
+(   9 | from werkzeug.exceptions import HTTPException) Tj T*
+(  10 |) Tj T*
+(  11 | from blueprints.auth.auth import auth_bp) Tj T*
+(  12 | from blueprints.businesses.businesses import businesses_bp) Tj T*
+(  13 | from blueprints.reviews.reviews import reviews_bp) Tj T*
+(  14 | from globals import DB_NAME, ensure_indexes) Tj T*
+(  15 |) Tj T*
+(  16 |) Tj T*
+(  17 | def create_app\(\) -> Flask:) Tj T*
+(  18 |     app = Flask\(__name__\)) Tj T*
+(  19 |     app.config["JSON_SORT_KEYS"] = False) Tj T*
+(  20 |     CORS\(app, resources={r"/api/*": {"origins": "*"}}\)) Tj T*
+(  21 |) Tj T*
+(  22 |     app.register_blueprint\(auth_bp\)) Tj T*
+(  23 |     app.register_blueprint\(businesses_bp\)) Tj T*
+(  24 |     app.register_blueprint\(reviews_bp\)) Tj T*
+(  25 |) Tj T*
+(  26 |     @app.get\("/health"\)) Tj T*
+(  27 |     def health\(\):) Tj T*
+(  28 |         return jsonify\({"status": "ok", "database": DB_NAME}\)) Tj T*
+(  29 |) Tj T*
+(  30 |     @app.cli.command\("init-db"\)) Tj T*
+(  31 |     def init_db_command\(\):) Tj T*
+(  32 |         """Create MongoDB indexes used by the API.""") Tj T*
+(  33 |         ensure_indexes\(\)) Tj T*
+(  34 |         print\("MongoDB indexes created."\)) Tj T*
+(  35 |) Tj T*
+(  36 |     @app.errorhandler\(HTTPException\)) Tj T*
+(  37 |     def handle_http_exception\(error: HTTPException\):) Tj T*
+(  38 |         return jsonify\({"error": error.description}\), error.code) Tj T*
+(  39 |) Tj T*
+(  40 |     @app.errorhandler\(Exception\)) Tj T*
+(  41 |     def handle_unexpected_exception\(error: Exception\):) Tj T*
+(  42 |         app.logger.exception\("Unhandled application error"\)) Tj T*
+(  43 |         return jsonify\({"error": "Internal server error"}\), 500) Tj T*
+(  44 |) Tj T*
+(  45 |     return app) Tj T*
+(  46 |) Tj T*
+(  47 |) Tj T*
+(  48 | app = create_app\(\)) Tj T*
+(  49 |) Tj T*
+(  50 |) Tj T*
+(  51 | if __name__ == "__main__":) Tj T*
+(  52 |     app.run\() Tj T*
+(  53 |         host=os.getenv\("HOST", "127.0.0.1"\),) Tj T*
+(  54 |         port=int\(os.getenv\("PORT", "5000"\)\),) Tj T*
+(  55 |         debug=os.getenv\("FLASK_DEBUG", "0"\) == "1",) Tj T*
+(  56 |     \)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/globals.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Shared configuration and MongoDB collections for the LocalLens API.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | import os) Tj T*
+(   6 | import secrets) Tj T*
+(   7 | from pathlib import Path) Tj T*
+(   8 |) Tj T*
+(   9 | from pymongo import ASCENDING, DESCENDING, GEOSPHERE, TEXT, MongoClient) Tj T*
+(  10 |) Tj T*
+(  11 |) Tj T*
+(  12 | def _load_local_env\(\) -> None:) Tj T*
+(  13 |     """Load a gitignored .env.local without adding a dotenv dependency.""") Tj T*
+(  14 |     env_path = Path\(__file__\).with_name\(".env.local"\)) Tj T*
+(  15 |     if not env_path.exists\(\):) Tj T*
+(  16 |         return) Tj T*
+(  17 |     for raw_line in env_path.read_text\(encoding="utf-8"\).splitlines\(\):) Tj T*
+(  18 |         line = raw_line.strip\(\)) Tj T*
+(  19 |         if not line or line.startswith\("#"\) or "=" not in line:) Tj T*
+(  20 |             continue) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 4074 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  21 |         key, value = line.split\("=", 1\)) Tj T*
+(  22 |         os.environ.setdefault\(key.strip\(\), value.strip\(\)\)) Tj T*
+(  23 |) Tj T*
+(  24 |) Tj T*
+(  25 | _load_local_env\(\)) Tj T*
+(  26 |) Tj T*
+(  27 | MONGO_URI = os.getenv\("MONGO_URI", "mongodb://127.0.0.1:27017"\)) Tj T*
+(  28 | DB_NAME = os.getenv\("MONGO_DB_NAME", "locallens"\)) Tj T*
+(  29 |) Tj T*
+(  30 | # A generated development secret is safe to keep in memory, but it changes on) Tj T*
+(  31 | # restart. Production/coursework runs should set JWT_SECRET explicitly.) Tj T*
+(  32 | JWT_SECRET = os.getenv\("JWT_SECRET"\) or secrets.token_hex\(32\)) Tj T*
+(  33 | JWT_ALGORITHM = "HS256") Tj T*
+(  34 | JWT_EXPIRY_SECONDS = int\(os.getenv\("JWT_EXPIRY_SECONDS", "28800"\)\)) Tj T*
+(  35 |) Tj T*
+(  36 | CLIENT = MongoClient\(MONGO_URI, serverSelectionTimeoutMS=3000\)) Tj T*
+(  37 | DB = CLIENT[DB_NAME]) Tj T*
+(  38 |) Tj T*
+(  39 | users_collection = DB["users"]) Tj T*
+(  40 | businesses_collection = DB["businesses"]) Tj T*
+(  41 | reviews_collection = DB["reviews"]) Tj T*
+(  42 | blacklist_collection = DB["blacklist"]) Tj T*
+(  43 |) Tj T*
+(  44 |) Tj T*
+(  45 | def ensure_indexes\(\) -> None:) Tj T*
+(  46 |     """Create indexes required by authentication and advanced queries.""") Tj T*
+(  47 |     users_collection.create_index\([\("username", ASCENDING\)], unique=True\)) Tj T*
+(  48 |     blacklist_collection.create_index\([\("jti", ASCENDING\)], unique=True\)) Tj T*
+(  49 |     blacklist_collection.create_index\() Tj T*
+(  50 |         [\("expires_at", ASCENDING\)], expireAfterSeconds=0) Tj T*
+(  51 |     \)) Tj T*
+(  52 |     businesses_collection.create_index\([\("location", GEOSPHERE\)]\)) Tj T*
+(  53 |     businesses_collection.create_index\() Tj T*
+(  54 |         [\("name", TEXT\), \("description", TEXT\), \("town", TEXT\)]) Tj T*
+(  55 |     \)) Tj T*
+(  56 |     businesses_collection.create_index\() Tj T*
+(  57 |         [\("town", ASCENDING\), \("categories", ASCENDING\)]) Tj T*
+(  58 |     \)) Tj T*
+(  59 |     reviews_collection.create_index\() Tj T*
+(  60 |         [\("business_id", ASCENDING\), \("created_at", DESCENDING\)]) Tj T*
+(  61 |     \)) Tj T*
+(  62 |     reviews_collection.create_index\([\("user_id", ASCENDING\)]\)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/decorators.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """JWT and role-based access-control decorators.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | from functools import wraps) Tj T*
+(   6 | from typing import Any, Callable) Tj T*
+(   7 |) Tj T*
+(   8 | import jwt) Tj T*
+(   9 | from bson import ObjectId) Tj T*
+(  10 | from flask import g, jsonify, request) Tj T*
+(  11 |) Tj T*
+(  12 | from globals import \() Tj T*
+(  13 |     JWT_ALGORITHM,) Tj T*
+(  14 |     JWT_SECRET,) Tj T*
+(  15 |     blacklist_collection,) Tj T*
+(  16 |     users_collection,) Tj T*
+(  17 | \)) Tj T*
+(  18 |) Tj T*
+(  19 |) Tj T*
+(  20 | def _error\(message: str, status: int\):) Tj T*
+(  21 |     return jsonify\({"error": message}\), status) Tj T*
+(  22 |) Tj T*
+(  23 |) Tj T*
+(  24 | def jwt_required\(view: Callable[..., Any]\) -> Callable[..., Any]:) Tj T*
+(  25 |     """Validate a Bearer JWT, reject logout-blacklisted tokens, and load the user.""") Tj T*
+(  26 |) Tj T*
+(  27 |     @wraps\(view\)) Tj T*
+(  28 |     def wrapper\(*args, **kwargs\):) Tj T*
+(  29 |         auth_header = request.headers.get\("Authorization", ""\)) Tj T*
+(  30 |         if not auth_header.startswith\("Bearer "\):) Tj T*
+(  31 |             return _error\("Authorization header must use Bearer <token>", 401\)) Tj T*
+(  32 |) Tj T*
+(  33 |         token = auth_header[7:].strip\(\)) Tj T*
+(  34 |         if not token:) Tj T*
+(  35 |             return _error\("Bearer token is missing", 401\)) Tj T*
+(  36 |) Tj T*
+(  37 |         try:) Tj T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 4101 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  38 |             payload = jwt.decode\() Tj T*
+(  39 |                 token,) Tj T*
+(  40 |                 JWT_SECRET,) Tj T*
+(  41 |                 algorithms=[JWT_ALGORITHM],) Tj T*
+(  42 |             \)) Tj T*
+(  43 |         except jwt.ExpiredSignatureError:) Tj T*
+(  44 |             return _error\("Token has expired", 401\)) Tj T*
+(  45 |         except jwt.InvalidTokenError:) Tj T*
+(  46 |             return _error\("Token is invalid", 401\)) Tj T*
+(  47 |) Tj T*
+(  48 |         if not payload.get\("sub"\) or not payload.get\("jti"\) or not payload.get\("exp"\):) Tj T*
+(  49 |             return _error\("Token is missing required claims", 401\)) Tj T*
+(  50 |) Tj T*
+(  51 |         if blacklist_collection.find_one\({"jti": payload["jti"]}\):) Tj T*
+(  52 |             return _error\("Token has been revoked", 401\)) Tj T*
+(  53 |) Tj T*
+(  54 |         if not ObjectId.is_valid\(payload["sub"]\):) Tj T*
+(  55 |             return _error\("Token subject is invalid", 401\)) Tj T*
+(  56 |) Tj T*
+(  57 |         user = users_collection.find_one\({"_id": ObjectId\(payload["sub"]\)}\)) Tj T*
+(  58 |         if not user:) Tj T*
+(  59 |             return _error\("Token user no longer exists", 401\)) Tj T*
+(  60 |) Tj T*
+(  61 |         g.current_user = user) Tj T*
+(  62 |         g.jwt_payload = payload) Tj T*
+(  63 |         g.jwt_token = token) Tj T*
+(  64 |         return view\(*args, **kwargs\)) Tj T*
+(  65 |) Tj T*
+(  66 |     return wrapper) Tj T*
+(  67 |) Tj T*
+(  68 |) Tj T*
+(  69 | def admin_required\(view: Callable[..., Any]\) -> Callable[..., Any]:) Tj T*
+(  70 |     """Require the authenticated user loaded by jwt_required to be an admin.""") Tj T*
+(  71 |) Tj T*
+(  72 |     @wraps\(view\)) Tj T*
+(  73 |     def wrapper\(*args, **kwargs\):) Tj T*
+(  74 |         user = getattr\(g, "current_user", None\)) Tj T*
+(  75 |         if not user or not user.get\("admin", False\):) Tj T*
+(  76 |             return _error\("Administrator permission required", 403\)) Tj T*
+(  77 |         return view\(*args, **kwargs\)) Tj T*
+(  78 |) Tj T*
+(  79 |     return wrapper) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/utils.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Small shared validation and JSON serialisation helpers.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | from datetime import date, datetime, timezone) Tj T*
+(   6 | from typing import Any) Tj T*
+(   7 |) Tj T*
+(   8 | from bson import ObjectId) Tj T*
+(   9 | from flask import request) Tj T*
+(  10 |) Tj T*
+(  11 |) Tj T*
+(  12 | def utcnow\(\) -> datetime:) Tj T*
+(  13 |     """Return a timezone-aware UTC timestamp.""") Tj T*
+(  14 |     return datetime.now\(timezone.utc\)) Tj T*
+(  15 |) Tj T*
+(  16 |) Tj T*
+(  17 | def json_safe\(value: Any\) -> Any:) Tj T*
+(  18 |     """Convert BSON/Python values into JSON-compatible values.""") Tj T*
+(  19 |     if isinstance\(value, ObjectId\):) Tj T*
+(  20 |         return str\(value\)) Tj T*
+(  21 |     if isinstance\(value, \(datetime, date\)\):) Tj T*
+(  22 |         return value.isoformat\(\)) Tj T*
+(  23 |     if isinstance\(value, dict\):) Tj T*
+(  24 |         return {str\(key\): json_safe\(item\) for key, item in value.items\(\)}) Tj T*
+(  25 |     if isinstance\(value, \(list, tuple\)\):) Tj T*
+(  26 |         return [json_safe\(item\) for item in value]) Tj T*
+(  27 |     return value) Tj T*
+(  28 |) Tj T*
+(  29 |) Tj T*
+(  30 | def parse_object_id\(value: str, field_name: str = "id"\) -> ObjectId:) Tj T*
+(  31 |     """Parse a MongoDB ObjectId or raise ValueError.""") Tj T*
+(  32 |     if not ObjectId.is_valid\(value\):) Tj T*
+(  33 |         raise ValueError\(f"{field_name} must be a 24-character MongoDB ObjectId"\)) Tj T*
+(  34 |     return ObjectId\(value\)) Tj T*
+(  35 |) Tj T*
+(  36 |) Tj T*
+(  37 | def parse_pagination\(\) -> tuple[int, int, int]:) Tj T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 4031 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  38 |     """Read pn/ps query parameters and return page, size and skip.""") Tj T*
+(  39 |     try:) Tj T*
+(  40 |         page = int\(request.args.get\("pn", "1"\)\)) Tj T*
+(  41 |         page_size = int\(request.args.get\("ps", "20"\)\)) Tj T*
+(  42 |     except ValueError as exc:) Tj T*
+(  43 |         raise ValueError\("pn and ps must be integers"\) from exc) Tj T*
+(  44 |) Tj T*
+(  45 |     if page < 1:) Tj T*
+(  46 |         raise ValueError\("pn must be greater than or equal to 1"\)) Tj T*
+(  47 |     if page_size < 1 or page_size > 100:) Tj T*
+(  48 |         raise ValueError\("ps must be between 1 and 100"\)) Tj T*
+(  49 |     return page, page_size, \(page - 1\) * page_size) Tj T*
+(  50 |) Tj T*
+(  51 |) Tj T*
+(  52 | def pagination_payload\(page: int, page_size: int, total: int\) -> dict[str, Any]:) Tj T*
+(  53 |     """Build a consistent pagination metadata object.""") Tj T*
+(  54 |     pages = \(total + page_size - 1\) // page_size if total else 0) Tj T*
+(  55 |     return {) Tj T*
+(  56 |         "page": page,) Tj T*
+(  57 |         "page_size": page_size,) Tj T*
+(  58 |         "total": total,) Tj T*
+(  59 |         "pages": pages,) Tj T*
+(  60 |     }) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/blueprints/__init__.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Flask blueprints for the LocalLens API.""") Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/blueprints/auth/auth.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Registration, JWT login and logout endpoints.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | import re) Tj T*
+(   6 | from datetime import timedelta, timezone) Tj T*
+(   7 | from datetime import datetime) Tj T*
+(   8 | from uuid import uuid4) Tj T*
+(   9 |) Tj T*
+(  10 | import bcrypt) Tj T*
+(  11 | import jwt) Tj T*
+(  12 | from bson import ObjectId) Tj T*
+(  13 | from flask import Blueprint, g, jsonify, request) Tj T*
+(  14 | from pymongo.errors import DuplicateKeyError) Tj T*
+(  15 |) Tj T*
+(  16 | from decorators import jwt_required) Tj T*
+(  17 | from globals import \() Tj T*
+(  18 |     JWT_ALGORITHM,) Tj T*
+(  19 |     JWT_EXPIRY_SECONDS,) Tj T*
+(  20 |     JWT_SECRET,) Tj T*
+(  21 |     blacklist_collection,) Tj T*
+(  22 |     users_collection,) Tj T*
+(  23 | \)) Tj T*
+(  24 | from utils import json_safe, utcnow) Tj T*
+(  25 |) Tj T*
+(  26 | auth_bp = Blueprint\("auth", __name__, url_prefix="/api/v1.0"\)) Tj T*
+(  27 |) Tj T*
+(  28 | USERNAME_PATTERN = re.compile\(r"^[A-Za-z0-9_-]{3,50}$"\)) Tj T*
+(  29 | EMAIL_PATTERN = re.compile\(r"^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"\)) Tj T*
+(  30 |) Tj T*
+(  31 |) Tj T*
+(  32 | def _serialise_user\(user: dict\) -> dict:) Tj T*
+(  33 |     return {) Tj T*
+(  34 |         "id": str\(user["_id"]\),) Tj T*
+(  35 |         "username": user["username"],) Tj T*
+(  36 |         "email": user.get\("email"\),) Tj T*
+(  37 |         "admin": bool\(user.get\("admin", False\)\),) Tj T*
+(  38 |         "created_at": json_safe\(user.get\("created_at"\)\),) Tj T*
+(  39 |     }) Tj T*
+(  40 |) Tj T*
+(  41 |) Tj T*
+(  42 | def _credentials_from_request\(\) -> tuple[object, object]:) Tj T*
+(  43 |     payload = request.get_json\(silent=True\) or {}) Tj T*
+(  44 |     username = payload.get\("username", request.args.get\("username"\)\)) Tj T*
+(  45 |     password = payload.get\("password", request.args.get\("password"\)\)) Tj T*
+(  46 |     return username, password) Tj T*
+(  47 |) Tj T*
+(  48 |) Tj T*
+(  49 | def _issue_token\(user: dict\) -> dict:) Tj T*
+(  50 |     issued_at = utcnow\(\)) Tj T*
+(  51 |     expires_at = issued_at + timedelta\(seconds=JWT_EXPIRY_SECONDS\)) Tj T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 4120 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  52 |     payload = {) Tj T*
+(  53 |         "sub": str\(user["_id"]\),) Tj T*
+(  54 |         "username": user["username"],) Tj T*
+(  55 |         "admin": bool\(user.get\("admin", False\)\),) Tj T*
+(  56 |         "iat": issued_at,) Tj T*
+(  57 |         "exp": expires_at,) Tj T*
+(  58 |         "jti": uuid4\(\).hex,) Tj T*
+(  59 |     }) Tj T*
+(  60 |     token = jwt.encode\(payload, JWT_SECRET, algorithm=JWT_ALGORITHM\)) Tj T*
+(  61 |     return {) Tj T*
+(  62 |         "token": token,) Tj T*
+(  63 |         "token_type": "Bearer",) Tj T*
+(  64 |         "expires_in": JWT_EXPIRY_SECONDS,) Tj T*
+(  65 |         "user": _serialise_user\(user\),) Tj T*
+(  66 |     }) Tj T*
+(  67 |) Tj T*
+(  68 |) Tj T*
+(  69 | @auth_bp.post\("/users"\)) Tj T*
+(  70 | def register_user\(\):) Tj T*
+(  71 |     """Register a non-admin user.""") Tj T*
+(  72 |     payload = request.get_json\(silent=True\) or {}) Tj T*
+(  73 |     username = payload.get\("username"\)) Tj T*
+(  74 |     password = payload.get\("password"\)) Tj T*
+(  75 |     email = payload.get\("email"\)) Tj T*
+(  76 |) Tj T*
+(  77 |     if not isinstance\(username, str\) or not USERNAME_PATTERN.fullmatch\(username\):) Tj T*
+(  78 |         return jsonify\() Tj T*
+(  79 |             {"error": "username must be 3-50 letters, numbers, '_' or '-'"}) Tj T*
+(  80 |         \), 400) Tj T*
+(  81 |     if not isinstance\(password, str\) or len\(password\) < 8:) Tj T*
+(  82 |         return jsonify\({"error": "password must contain at least 8 characters"}\), 400) Tj T*
+(  83 |     if email is not None and \() Tj T*
+(  84 |         not isinstance\(email, str\) or not EMAIL_PATTERN.fullmatch\(email\)) Tj T*
+(  85 |     \):) Tj T*
+(  86 |         return jsonify\({"error": "email is invalid"}\), 400) Tj T*
+(  87 |) Tj T*
+(  88 |     password_hash = bcrypt.hashpw\() Tj T*
+(  89 |         password.encode\("utf-8"\), bcrypt.gensalt\(\)) Tj T*
+(  90 |     \).decode\("utf-8"\)) Tj T*
+(  91 |     document = {) Tj T*
+(  92 |         "username": username,) Tj T*
+(  93 |         "email": email,) Tj T*
+(  94 |         "password_hash": password_hash,) Tj T*
+(  95 |         "admin": False,) Tj T*
+(  96 |         "created_at": utcnow\(\),) Tj T*
+(  97 |     }) Tj T*
+(  98 |) Tj T*
+(  99 |     try:) Tj T*
+( 100 |         result = users_collection.insert_one\(document\)) Tj T*
+( 101 |     except DuplicateKeyError:) Tj T*
+( 102 |         return jsonify\({"error": "username already exists"}\), 409) Tj T*
+( 103 |) Tj T*
+( 104 |     document["_id"] = result.inserted_id) Tj T*
+( 105 |     return jsonify\({"user": _serialise_user\(document\)}\), 201) Tj T*
+( 106 |) Tj T*
+( 107 |) Tj T*
+( 108 | @auth_bp.route\("/login", methods=["GET", "POST"]\)) Tj T*
+( 109 | def login\(\):) Tj T*
+( 110 |     """Authenticate with username/password and return a JWT.) Tj T*
+( 111 |) Tj T*
+( 112 |     POST JSON is the preferred form. GET query parameters are retained because) Tj T*
+( 113 |     the module endpoint specification explicitly lists GET /login.) Tj T*
+( 114 |     """) Tj T*
+( 115 |     username, password = _credentials_from_request\(\)) Tj T*
+( 116 |     if not isinstance\(username, str\) or not isinstance\(password, str\):) Tj T*
+( 117 |         return jsonify\({"error": "username and password are required"}\), 400) Tj T*
+( 118 |) Tj T*
+( 119 |     user = users_collection.find_one\({"username": username}\)) Tj T*
+( 120 |     if not user:) Tj T*
+( 121 |         return jsonify\({"error": "Invalid username or password"}\), 401) Tj T*
+( 122 |) Tj T*
+( 123 |     stored_hash = user.get\("password_hash", ""\)) Tj T*
+( 124 |     if isinstance\(stored_hash, bytes\):) Tj T*
+( 125 |         stored_hash_bytes = stored_hash) Tj T*
+( 126 |     elif isinstance\(stored_hash, str\):) Tj T*
+( 127 |         stored_hash_bytes = stored_hash.encode\("utf-8"\)) Tj T*
+( 128 |     else:) Tj T*
+( 129 |         stored_hash_bytes = b"") Tj T*
+( 130 |) Tj T*
+( 131 |     try:) Tj T*
+( 132 |         password_matches = bcrypt.checkpw\() Tj T*
+( 133 |             password.encode\("utf-8"\), stored_hash_bytes) Tj T*
+( 134 |         \)) Tj T*
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 3674 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 135 |     except ValueError:) Tj T*
+( 136 |         password_matches = False) Tj T*
+( 137 |) Tj T*
+( 138 |     if not password_matches:) Tj T*
+( 139 |         return jsonify\({"error": "Invalid username or password"}\), 401) Tj T*
+( 140 |) Tj T*
+( 141 |     return jsonify\(_issue_token\(user\)\), 200) Tj T*
+( 142 |) Tj T*
+( 143 |) Tj T*
+( 144 | @auth_bp.get\("/logout"\)) Tj T*
+( 145 | @jwt_required) Tj T*
+( 146 | def logout\(\):) Tj T*
+( 147 |     """Revoke the current JWT by adding its jti to the blacklist.""") Tj T*
+( 148 |     payload = g.jwt_payload) Tj T*
+( 149 |     expires_at = datetime.fromtimestamp\(int\(payload["exp"]\), tz=timezone.utc\)) Tj T*
+( 150 |     blacklist_collection.update_one\() Tj T*
+( 151 |         {"jti": payload["jti"]},) Tj T*
+( 152 |         {) Tj T*
+( 153 |             "$setOnInsert": {) Tj T*
+( 154 |                 "jti": payload["jti"],) Tj T*
+( 155 |                 "user_id": ObjectId\(payload["sub"]\),) Tj T*
+( 156 |                 "expires_at": expires_at,) Tj T*
+( 157 |                 "created_at": utcnow\(\),) Tj T*
+( 158 |             }) Tj T*
+( 159 |         },) Tj T*
+( 160 |         upsert=True,) Tj T*
+( 161 |     \)) Tj T*
+( 162 |     return jsonify\({"message": "Logged out successfully"}\), 200) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/blueprints/businesses/businesses.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Business CRUD, aggregation and geospatial query endpoints.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | import re) Tj T*
+(   6 | from typing import Any) Tj T*
+(   7 |) Tj T*
+(   8 | from flask import Blueprint, jsonify, request) Tj T*
+(   9 | from pymongo import ASCENDING, DESCENDING) Tj T*
+(  10 |) Tj T*
+(  11 | from decorators import admin_required, jwt_required) Tj T*
+(  12 | from globals import businesses_collection, reviews_collection) Tj T*
+(  13 | from utils import \() Tj T*
+(  14 |     json_safe,) Tj T*
+(  15 |     pagination_payload,) Tj T*
+(  16 |     parse_object_id,) Tj T*
+(  17 |     parse_pagination,) Tj T*
+(  18 |     utcnow,) Tj T*
+(  19 | \)) Tj T*
+(  20 |) Tj T*
+(  21 | businesses_bp = Blueprint\() Tj T*
+(  22 |     "businesses", __name__, url_prefix="/api/v1.0/businesses") Tj T*
+(  23 | \)) Tj T*
+(  24 |) Tj T*
+(  25 | ALLOWED_BUSINESS_FIELDS = {) Tj T*
+(  26 |     "name",) Tj T*
+(  27 |     "town",) Tj T*
+(  28 |     "address",) Tj T*
+(  29 |     "postcode",) Tj T*
+(  30 |     "categories",) Tj T*
+(  31 |     "description",) Tj T*
+(  32 |     "location",) Tj T*
+(  33 |     "price_level",) Tj T*
+(  34 |     "active",) Tj T*
+(  35 | }) Tj T*
+(  36 | SORT_FIELDS = {"name", "town", "rating", "review_count", "created_at"}) Tj T*
+(  37 |) Tj T*
+(  38 |) Tj T*
+(  39 | def _validate_business_payload\() Tj T*
+(  40 |     payload: dict[str, Any], *, partial: bool = False) Tj T*
+(  41 | \) -> tuple[dict[str, Any], list[str]]:) Tj T*
+(  42 |     """Validate and normalise a business request body.""") Tj T*
+(  43 |     errors: list[str] = []) Tj T*
+(  44 |     clean: dict[str, Any] = {}) Tj T*
+(  45 |     unknown = sorted\(set\(payload\) - ALLOWED_BUSINESS_FIELDS\)) Tj T*
+(  46 |     if unknown:) Tj T*
+(  47 |         errors.append\(f"Unsupported fields: {', '.join\(unknown\)}"\)) Tj T*
+(  48 |) Tj T*
+(  49 |     required = {"name", "town", "location"}) Tj T*
+(  50 |     if not partial:) Tj T*
+(  51 |         missing = sorted\(field for field in required if field not in payload\)) Tj T*
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 4513 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  52 |         if missing:) Tj T*
+(  53 |             errors.append\(f"Missing required fields: {', '.join\(missing\)}"\)) Tj T*
+(  54 |) Tj T*
+(  55 |     if "name" in payload:) Tj T*
+(  56 |         name = payload["name"]) Tj T*
+(  57 |         if not isinstance\(name, str\) or not name.strip\(\) or len\(name.strip\(\)\) > 200:) Tj T*
+(  58 |             errors.append\("name must be a non-empty string of at most 200 characters"\)) Tj T*
+(  59 |         else:) Tj T*
+(  60 |             clean["name"] = name.strip\(\)) Tj T*
+(  61 |) Tj T*
+(  62 |     for field in \("town", "address", "postcode"\):) Tj T*
+(  63 |         if field in payload:) Tj T*
+(  64 |             value = payload[field]) Tj T*
+(  65 |             if not isinstance\(value, str\) or not value.strip\(\):) Tj T*
+(  66 |                 errors.append\(f"{field} must be a non-empty string"\)) Tj T*
+(  67 |             else:) Tj T*
+(  68 |                 clean[field] = value.strip\(\)) Tj T*
+(  69 |) Tj T*
+(  70 |     if "description" in payload:) Tj T*
+(  71 |         description = payload["description"]) Tj T*
+(  72 |         if not isinstance\(description, str\) or len\(description\) > 5000:) Tj T*
+(  73 |             errors.append\("description must be a string of at most 5000 characters"\)) Tj T*
+(  74 |         else:) Tj T*
+(  75 |             clean["description"] = description) Tj T*
+(  76 |) Tj T*
+(  77 |     if "categories" in payload:) Tj T*
+(  78 |         categories = payload["categories"]) Tj T*
+(  79 |         if \() Tj T*
+(  80 |             not isinstance\(categories, list\)) Tj T*
+(  81 |             or not categories) Tj T*
+(  82 |             or len\(categories\) > 10) Tj T*
+(  83 |             or any\() Tj T*
+(  84 |                 not isinstance\(item, str\) or not item.strip\(\) or len\(item.strip\(\)\) > 80) Tj T*
+(  85 |                 for item in categories) Tj T*
+(  86 |             \)) Tj T*
+(  87 |         \):) Tj T*
+(  88 |             errors.append\("categories must be a list of 1-10 non-empty strings"\)) Tj T*
+(  89 |         else:) Tj T*
+(  90 |             clean["categories"] = list\() Tj T*
+(  91 |                 dict.fromkeys\(item.strip\(\) for item in categories\)) Tj T*
+(  92 |             \)) Tj T*
+(  93 |) Tj T*
+(  94 |     if "location" in payload:) Tj T*
+(  95 |         location = payload["location"]) Tj T*
+(  96 |         valid_location = \() Tj T*
+(  97 |             isinstance\(location, dict\)) Tj T*
+(  98 |             and location.get\("type"\) == "Point") Tj T*
+(  99 |             and isinstance\(location.get\("coordinates"\), list\)) Tj T*
+( 100 |             and len\(location["coordinates"]\) == 2) Tj T*
+( 101 |             and all\() Tj T*
+( 102 |                 isinstance\(value, \(int, float\)\) and not isinstance\(value, bool\)) Tj T*
+( 103 |                 for value in location["coordinates"]) Tj T*
+( 104 |             \)) Tj T*
+( 105 |         \)) Tj T*
+( 106 |         if not valid_location:) Tj T*
+( 107 |             errors.append\() Tj T*
+( 108 |                 "location must be GeoJSON {'type':'Point','coordinates':[lon,lat]}") Tj T*
+( 109 |             \)) Tj T*
+( 110 |         else:) Tj T*
+( 111 |             longitude, latitude = location["coordinates"]) Tj T*
+( 112 |             if not \(-180 <= longitude <= 180 and -90 <= latitude <= 90\):) Tj T*
+( 113 |                 errors.append\("location coordinates are outside valid longitude/latitude"\)) Tj T*
+( 114 |             else:) Tj T*
+( 115 |                 clean["location"] = {) Tj T*
+( 116 |                     "type": "Point",) Tj T*
+( 117 |                     "coordinates": [float\(longitude\), float\(latitude\)],) Tj T*
+( 118 |                 }) Tj T*
+( 119 |) Tj T*
+( 120 |     if "price_level" in payload:) Tj T*
+( 121 |         price_level = payload["price_level"]) Tj T*
+( 122 |         if \() Tj T*
+( 123 |             not isinstance\(price_level, int\)) Tj T*
+( 124 |             or isinstance\(price_level, bool\)) Tj T*
+( 125 |             or price_level not in {1, 2, 3, 4}) Tj T*
+( 126 |         \):) Tj T*
+( 127 |             errors.append\("price_level must be an integer from 1 to 4"\)) Tj T*
+( 128 |         else:) Tj T*
+( 129 |             clean["price_level"] = price_level) Tj T*
+( 130 |) Tj T*
+( 131 |     if "active" in payload:) Tj T*
+( 132 |         if not isinstance\(payload["active"], bool\):) Tj T*
+( 133 |             errors.append\("active must be a boolean"\)) Tj T*
+( 134 |         else:) Tj T*
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 4356 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 135 |             clean["active"] = payload["active"]) Tj T*
+( 136 |) Tj T*
+( 137 |     return clean, errors) Tj T*
+( 138 |) Tj T*
+( 139 |) Tj T*
+( 140 | def _sort_spec\(\) -> list[tuple[str, int]]:) Tj T*
+( 141 |     requested = request.args.get\("sort", "-created_at"\)) Tj T*
+( 142 |     descending = requested.startswith\("-"\)) Tj T*
+( 143 |     field = requested[1:] if descending else requested) Tj T*
+( 144 |     if field not in SORT_FIELDS:) Tj T*
+( 145 |         raise ValueError\(f"sort must be one of: {', '.join\(sorted\(SORT_FIELDS\)\)}"\)) Tj T*
+( 146 |     direction = DESCENDING if descending else ASCENDING) Tj T*
+( 147 |     return [\(field, direction\), \("_id", ASCENDING\)]) Tj T*
+( 148 |) Tj T*
+( 149 |) Tj T*
+( 150 | @businesses_bp.get\(""\)) Tj T*
+( 151 | def list_businesses\(\):) Tj T*
+( 152 |     """List businesses with pagination, text/multi-value filters and sorting.""") Tj T*
+( 153 |     try:) Tj T*
+( 154 |         page, page_size, skip = parse_pagination\(\)) Tj T*
+( 155 |         sort_spec = _sort_spec\(\)) Tj T*
+( 156 |         query = request.args.get\("q", ""\).strip\(\)) Tj T*
+( 157 |         town = request.args.get\("town", ""\).strip\(\)) Tj T*
+( 158 |         categories = [) Tj T*
+( 159 |             value.strip\(\) for value in request.args.getlist\("category"\) if value.strip\(\)) Tj T*
+( 160 |         ]) Tj T*
+( 161 |         min_rating = request.args.get\("min_rating"\)) Tj T*
+( 162 |         max_rating = request.args.get\("max_rating"\)) Tj T*
+( 163 |         active = request.args.get\("active"\)) Tj T*
+( 164 |     except ValueError as exc:) Tj T*
+( 165 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 166 |) Tj T*
+( 167 |     filters: dict[str, Any] = {}) Tj T*
+( 168 |     if query:) Tj T*
+( 169 |         escaped = re.escape\(query\)) Tj T*
+( 170 |         filters["$or"] = [) Tj T*
+( 171 |             {"name": {"$regex": escaped, "$options": "i"}},) Tj T*
+( 172 |             {"description": {"$regex": escaped, "$options": "i"}},) Tj T*
+( 173 |             {"categories": {"$regex": escaped, "$options": "i"}},) Tj T*
+( 174 |         ]) Tj T*
+( 175 |     if town:) Tj T*
+( 176 |         filters["town"] = {"$regex": f"^{re.escape\(town\)}$", "$options": "i"}) Tj T*
+( 177 |     if categories:) Tj T*
+( 178 |         filters["categories"] = {"$all": categories}) Tj T*
+( 179 |) Tj T*
+( 180 |     if min_rating is not None or max_rating is not None:) Tj T*
+( 181 |         rating_filter: dict[str, float] = {}) Tj T*
+( 182 |         try:) Tj T*
+( 183 |             if min_rating is not None:) Tj T*
+( 184 |                 rating_filter["$gte"] = float\(min_rating\)) Tj T*
+( 185 |             if max_rating is not None:) Tj T*
+( 186 |                 rating_filter["$lte"] = float\(max_rating\)) Tj T*
+( 187 |         except ValueError:) Tj T*
+( 188 |             return jsonify\({"error": "min_rating and max_rating must be numbers"}\), 400) Tj T*
+( 189 |         if any\(not 0 <= value <= 5 for value in rating_filter.values\(\)\):) Tj T*
+( 190 |             return jsonify\({"error": "rating filters must be between 0 and 5"}\), 400) Tj T*
+( 191 |         filters["rating"] = rating_filter) Tj T*
+( 192 |) Tj T*
+( 193 |     if active is not None:) Tj T*
+( 194 |         if active.lower\(\) not in {"true", "false"}:) Tj T*
+( 195 |             return jsonify\({"error": "active must be true or false"}\), 400) Tj T*
+( 196 |         filters["active"] = active.lower\(\) == "true") Tj T*
+( 197 |) Tj T*
+( 198 |     total = businesses_collection.count_documents\(filters\)) Tj T*
+( 199 |     documents = \() Tj T*
+( 200 |         businesses_collection.find\(filters\)) Tj T*
+( 201 |         .sort\(sort_spec\)) Tj T*
+( 202 |         .skip\(skip\)) Tj T*
+( 203 |         .limit\(page_size\)) Tj T*
+( 204 |     \)) Tj T*
+( 205 |     return jsonify\() Tj T*
+( 206 |         {) Tj T*
+( 207 |             "items": json_safe\(list\(documents\)\),) Tj T*
+( 208 |             **pagination_payload\(page, page_size, total\),) Tj T*
+( 209 |         }) Tj T*
+( 210 |     \), 200) Tj T*
+( 211 |) Tj T*
+( 212 |) Tj T*
+( 213 | @businesses_bp.post\(""\)) Tj T*
+( 214 | @jwt_required) Tj T*
+( 215 | def create_business\(\):) Tj T*
+( 216 |     """Create a business as an authenticated user.""") Tj T*
+( 217 |     payload = request.get_json\(silent=True\)) Tj T*
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 18 0 R >>
+endobj
+20 0 obj
+<< /Length 3950 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 218 |     if not isinstance\(payload, dict\):) Tj T*
+( 219 |         return jsonify\({"error": "JSON object body is required"}\), 400) Tj T*
+( 220 |) Tj T*
+( 221 |     clean, errors = _validate_business_payload\(payload\)) Tj T*
+( 222 |     if errors:) Tj T*
+( 223 |         return jsonify\({"error": "Validation failed", "details": errors}\), 400) Tj T*
+( 224 |) Tj T*
+( 225 |     duplicate = businesses_collection.find_one\() Tj T*
+( 226 |         {) Tj T*
+( 227 |             "name": {"$regex": f"^{re.escape\(clean['name']\)}$", "$options": "i"},) Tj T*
+( 228 |             "town": {"$regex": f"^{re.escape\(clean['town']\)}$", "$options": "i"},) Tj T*
+( 229 |         }) Tj T*
+( 230 |     \)) Tj T*
+( 231 |     if duplicate:) Tj T*
+( 232 |         return jsonify\({"error": "A business with this name and town exists"}\), 409) Tj T*
+( 233 |) Tj T*
+( 234 |     now = utcnow\(\)) Tj T*
+( 235 |     document = {) Tj T*
+( 236 |         **clean,) Tj T*
+( 237 |         "rating": 0.0,) Tj T*
+( 238 |         "review_count": 0,) Tj T*
+( 239 |         "created_at": now,) Tj T*
+( 240 |         "updated_at": now,) Tj T*
+( 241 |     }) Tj T*
+( 242 |     result = businesses_collection.insert_one\(document\)) Tj T*
+( 243 |     document["_id"] = result.inserted_id) Tj T*
+( 244 |     return \() Tj T*
+( 245 |         jsonify\(json_safe\(document\)\),) Tj T*
+( 246 |         201,) Tj T*
+( 247 |         {"Location": f"/api/v1.0/businesses/{result.inserted_id}"},) Tj T*
+( 248 |     \)) Tj T*
+( 249 |) Tj T*
+( 250 |) Tj T*
+( 251 | @businesses_bp.get\("/advanced"\)) Tj T*
+( 252 | def advanced_business_search\(\):) Tj T*
+( 253 |     """Run the required multi-stage aggregation pipeline.""") Tj T*
+( 254 |     try:) Tj T*
+( 255 |         page, page_size, skip = parse_pagination\(\)) Tj T*
+( 256 |     except ValueError as exc:) Tj T*
+( 257 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 258 |) Tj T*
+( 259 |     category = request.args.get\("category", ""\).strip\(\)) Tj T*
+( 260 |     min_rating_raw = request.args.get\("min_rating", "0"\)) Tj T*
+( 261 |     try:) Tj T*
+( 262 |         min_rating = float\(min_rating_raw\)) Tj T*
+( 263 |     except ValueError:) Tj T*
+( 264 |         return jsonify\({"error": "min_rating must be a number"}\), 400) Tj T*
+( 265 |     if not 0 <= min_rating <= 5:) Tj T*
+( 266 |         return jsonify\({"error": "min_rating must be between 0 and 5"}\), 400) Tj T*
+( 267 |) Tj T*
+( 268 |     post_unwind_match: dict[str, Any] = {"categories": {"$exists": True}}) Tj T*
+( 269 |     if category:) Tj T*
+( 270 |         post_unwind_match["categories"] = category) Tj T*
+( 271 |) Tj T*
+( 272 |     pipeline = [) Tj T*
+( 273 |         {"$match": {"rating": {"$gte": min_rating}, "active": True}},) Tj T*
+( 274 |         {) Tj T*
+( 275 |             "$project": {) Tj T*
+( 276 |                 "name": 1,) Tj T*
+( 277 |                 "town": 1,) Tj T*
+( 278 |                 "address": 1,) Tj T*
+( 279 |                 "rating": 1,) Tj T*
+( 280 |                 "review_count": 1,) Tj T*
+( 281 |                 "categories": 1,) Tj T*
+( 282 |             }) Tj T*
+( 283 |         },) Tj T*
+( 284 |         {"$unwind": "$categories"},) Tj T*
+( 285 |         {"$match": post_unwind_match},) Tj T*
+( 286 |         {"$sort": {"rating": -1, "_id": 1}},) Tj T*
+( 287 |         {"$skip": skip},) Tj T*
+( 288 |         {"$limit": page_size},) Tj T*
+( 289 |     ]) Tj T*
+( 290 |     documents = list\(businesses_collection.aggregate\(pipeline\)\)) Tj T*
+( 291 |     return jsonify\() Tj T*
+( 292 |         {) Tj T*
+( 293 |             "items": json_safe\(documents\),) Tj T*
+( 294 |             "page": page,) Tj T*
+( 295 |             "page_size": page_size,) Tj T*
+( 296 |             "pipeline_stages": [) Tj T*
+( 297 |                 "$match",) Tj T*
+( 298 |                 "$project",) Tj T*
+( 299 |                 "$unwind",) Tj T*
+( 300 |                 "$match",) Tj T*
+ET
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 20 0 R >>
+endobj
+22 0 obj
+<< /Length 4151 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 301 |                 "$sort",) Tj T*
+( 302 |                 "$skip",) Tj T*
+( 303 |                 "$limit",) Tj T*
+( 304 |             ],) Tj T*
+( 305 |         }) Tj T*
+( 306 |     \), 200) Tj T*
+( 307 |) Tj T*
+( 308 |) Tj T*
+( 309 | @businesses_bp.get\("/stats/by-town"\)) Tj T*
+( 310 | def business_stats_by_town\(\):) Tj T*
+( 311 |     """Group businesses by town and return counts plus average ratings.""") Tj T*
+( 312 |     limit_raw = request.args.get\("limit", "50"\)) Tj T*
+( 313 |     try:) Tj T*
+( 314 |         limit = int\(limit_raw\)) Tj T*
+( 315 |     except ValueError:) Tj T*
+( 316 |         return jsonify\({"error": "limit must be an integer"}\), 400) Tj T*
+( 317 |     if not 1 <= limit <= 200:) Tj T*
+( 318 |         return jsonify\({"error": "limit must be between 1 and 200"}\), 400) Tj T*
+( 319 |) Tj T*
+( 320 |     pipeline = [) Tj T*
+( 321 |         {"$match": {"town": {"$exists": True, "$ne": ""}}},) Tj T*
+( 322 |         {) Tj T*
+( 323 |             "$group": {) Tj T*
+( 324 |                 "_id": "$town",) Tj T*
+( 325 |                 "business_count": {"$sum": 1},) Tj T*
+( 326 |                 "average_rating": {"$avg": "$rating"},) Tj T*
+( 327 |                 "review_count": {"$sum": "$review_count"},) Tj T*
+( 328 |             }) Tj T*
+( 329 |         },) Tj T*
+( 330 |         {"$sort": {"business_count": -1, "_id": 1}},) Tj T*
+( 331 |         {"$limit": limit},) Tj T*
+( 332 |         {) Tj T*
+( 333 |             "$project": {) Tj T*
+( 334 |                 "_id": 0,) Tj T*
+( 335 |                 "town": "$_id",) Tj T*
+( 336 |                 "business_count": 1,) Tj T*
+( 337 |                 "average_rating": {"$round": ["$average_rating", 2]},) Tj T*
+( 338 |                 "review_count": 1,) Tj T*
+( 339 |             }) Tj T*
+( 340 |         },) Tj T*
+( 341 |     ]) Tj T*
+( 342 |     return jsonify\({"items": json_safe\(list\(businesses_collection.aggregate\(pipeline\)\)\)}\), 200) Tj T*
+( 343 |) Tj T*
+( 344 |) Tj T*
+( 345 | @businesses_bp.get\("/nearby"\)) Tj T*
+( 346 | def nearby_businesses\(\):) Tj T*
+( 347 |     """Find businesses near a longitude/latitude using $geoNear.""") Tj T*
+( 348 |     longitude_raw = request.args.get\("longitude"\)) Tj T*
+( 349 |     latitude_raw = request.args.get\("latitude"\)) Tj T*
+( 350 |     try:) Tj T*
+( 351 |         longitude = float\(longitude_raw\)) Tj T*
+( 352 |         latitude = float\(latitude_raw\)) Tj T*
+( 353 |     except \(TypeError, ValueError\):) Tj T*
+( 354 |         return jsonify\({"error": "longitude and latitude are required numbers"}\), 400) Tj T*
+( 355 |     if not \(-180 <= longitude <= 180 and -90 <= latitude <= 90\):) Tj T*
+( 356 |         return jsonify\({"error": "coordinates are outside valid ranges"}\), 400) Tj T*
+( 357 |) Tj T*
+( 358 |     try:) Tj T*
+( 359 |         page, page_size, skip = parse_pagination\(\)) Tj T*
+( 360 |         max_distance = float\(request.args.get\("max_distance", "5000"\)\)) Tj T*
+( 361 |         min_distance = float\(request.args.get\("min_distance", "0"\)\)) Tj T*
+( 362 |     except ValueError as exc:) Tj T*
+( 363 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 364 |     if max_distance <= 0 or min_distance < 0 or min_distance >= max_distance:) Tj T*
+( 365 |         return jsonify\() Tj T*
+( 366 |             {"error": "distances require 0 <= min_distance < max_distance"}) Tj T*
+( 367 |         \), 400) Tj T*
+( 368 |) Tj T*
+( 369 |     pipeline = [) Tj T*
+( 370 |         {) Tj T*
+( 371 |             "$geoNear": {) Tj T*
+( 372 |                 "near": {"type": "Point", "coordinates": [longitude, latitude]},) Tj T*
+( 373 |                 "distanceField": "distance_m",) Tj T*
+( 374 |                 "maxDistance": max_distance,) Tj T*
+( 375 |                 "minDistance": min_distance,) Tj T*
+( 376 |                 "spherical": True,) Tj T*
+( 377 |                 "query": {"active": True},) Tj T*
+( 378 |             }) Tj T*
+( 379 |         },) Tj T*
+( 380 |         {"$skip": skip},) Tj T*
+( 381 |         {"$limit": page_size},) Tj T*
+( 382 |         {) Tj T*
+( 383 |             "$project": {) Tj T*
+ET
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 22 0 R >>
+endobj
+24 0 obj
+<< /Length 4236 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 384 |                 "name": 1,) Tj T*
+( 385 |                 "town": 1,) Tj T*
+( 386 |                 "address": 1,) Tj T*
+( 387 |                 "categories": 1,) Tj T*
+( 388 |                 "rating": 1,) Tj T*
+( 389 |                 "review_count": 1,) Tj T*
+( 390 |                 "location": 1,) Tj T*
+( 391 |                 "distance_m": {"$round": ["$distance_m", 2]},) Tj T*
+( 392 |             }) Tj T*
+( 393 |         },) Tj T*
+( 394 |     ]) Tj T*
+( 395 |     return jsonify\() Tj T*
+( 396 |         {) Tj T*
+( 397 |             "items": json_safe\(list\(businesses_collection.aggregate\(pipeline\)\)\),) Tj T*
+( 398 |             "page": page,) Tj T*
+( 399 |             "page_size": page_size,) Tj T*
+( 400 |         }) Tj T*
+( 401 |     \), 200) Tj T*
+( 402 |) Tj T*
+( 403 |) Tj T*
+( 404 | @businesses_bp.get\("/<string:business_id>"\)) Tj T*
+( 405 | def get_business\(business_id: str\):) Tj T*
+( 406 |     """Return one business by MongoDB ObjectId.""") Tj T*
+( 407 |     try:) Tj T*
+( 408 |         object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 409 |     except ValueError as exc:) Tj T*
+( 410 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 411 |) Tj T*
+( 412 |     document = businesses_collection.find_one\({"_id": object_id}\)) Tj T*
+( 413 |     if not document:) Tj T*
+( 414 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 415 |     return jsonify\(json_safe\(document\)\), 200) Tj T*
+( 416 |) Tj T*
+( 417 |) Tj T*
+( 418 | @businesses_bp.put\("/<string:business_id>"\)) Tj T*
+( 419 | @jwt_required) Tj T*
+( 420 | def update_business\(business_id: str\):) Tj T*
+( 421 |     """Partially update a business as an authenticated user.""") Tj T*
+( 422 |     try:) Tj T*
+( 423 |         object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 424 |     except ValueError as exc:) Tj T*
+( 425 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 426 |) Tj T*
+( 427 |     payload = request.get_json\(silent=True\)) Tj T*
+( 428 |     if not isinstance\(payload, dict\):) Tj T*
+( 429 |         return jsonify\({"error": "JSON object body is required"}\), 400) Tj T*
+( 430 |) Tj T*
+( 431 |     clean, errors = _validate_business_payload\(payload, partial=True\)) Tj T*
+( 432 |     if errors:) Tj T*
+( 433 |         return jsonify\({"error": "Validation failed", "details": errors}\), 400) Tj T*
+( 434 |     if not clean:) Tj T*
+( 435 |         return jsonify\({"error": "At least one supported field is required"}\), 400) Tj T*
+( 436 |) Tj T*
+( 437 |     clean["updated_at"] = utcnow\(\)) Tj T*
+( 438 |     result = businesses_collection.update_one\({"_id": object_id}, {"$set": clean}\)) Tj T*
+( 439 |     if result.matched_count == 0:) Tj T*
+( 440 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 441 |) Tj T*
+( 442 |     document = businesses_collection.find_one\({"_id": object_id}\)) Tj T*
+( 443 |     return jsonify\(json_safe\(document\)\), 200) Tj T*
+( 444 |) Tj T*
+( 445 |) Tj T*
+( 446 | @businesses_bp.delete\("/<string:business_id>"\)) Tj T*
+( 447 | @jwt_required) Tj T*
+( 448 | @admin_required) Tj T*
+( 449 | def delete_business\(business_id: str\):) Tj T*
+( 450 |     """Delete a business and its reviews as an administrator.""") Tj T*
+( 451 |     try:) Tj T*
+( 452 |         object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 453 |     except ValueError as exc:) Tj T*
+( 454 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 455 |) Tj T*
+( 456 |     result = businesses_collection.delete_one\({"_id": object_id}\)) Tj T*
+( 457 |     if result.deleted_count == 0:) Tj T*
+( 458 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 459 |     reviews_collection.delete_many\({"business_id": object_id}\)) Tj T*
+( 460 |     return "", 204) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/blueprints/reviews/reviews.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Review CRUD endpoints nested under a business resource.""") Tj T*
+(   2 |) Tj T*
+ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 24 0 R >>
+endobj
+26 0 obj
+<< /Length 3950 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | from typing import Any) Tj T*
+(   6 |) Tj T*
+(   7 | from flask import Blueprint, g, jsonify, request) Tj T*
+(   8 | from pymongo import ASCENDING, DESCENDING) Tj T*
+(   9 |) Tj T*
+(  10 | from decorators import admin_required, jwt_required) Tj T*
+(  11 | from globals import businesses_collection, reviews_collection) Tj T*
+(  12 | from utils import \() Tj T*
+(  13 |     json_safe,) Tj T*
+(  14 |     pagination_payload,) Tj T*
+(  15 |     parse_object_id,) Tj T*
+(  16 |     parse_pagination,) Tj T*
+(  17 |     utcnow,) Tj T*
+(  18 | \)) Tj T*
+(  19 |) Tj T*
+(  20 | reviews_bp = Blueprint\("reviews", __name__, url_prefix="/api/v1.0/businesses"\)) Tj T*
+(  21 |) Tj T*
+(  22 | SORT_FIELDS = {"created_at", "updated_at", "rating"}) Tj T*
+(  23 |) Tj T*
+(  24 |) Tj T*
+(  25 | def _validate_review_payload\() Tj T*
+(  26 |     payload: dict[str, Any], *, partial: bool = False) Tj T*
+(  27 | \) -> tuple[dict[str, Any], list[str]]:) Tj T*
+(  28 |     errors: list[str] = []) Tj T*
+(  29 |     clean: dict[str, Any] = {}) Tj T*
+(  30 |     unknown = sorted\(set\(payload\) - {"rating", "text"}\)) Tj T*
+(  31 |     if unknown:) Tj T*
+(  32 |         errors.append\(f"Unsupported fields: {', '.join\(unknown\)}"\)) Tj T*
+(  33 |) Tj T*
+(  34 |     if not partial:) Tj T*
+(  35 |         missing = sorted\(field for field in \("rating", "text"\) if field not in payload\)) Tj T*
+(  36 |         if missing:) Tj T*
+(  37 |             errors.append\(f"Missing required fields: {', '.join\(missing\)}"\)) Tj T*
+(  38 |) Tj T*
+(  39 |     if "rating" in payload:) Tj T*
+(  40 |         rating = payload["rating"]) Tj T*
+(  41 |         if \() Tj T*
+(  42 |             not isinstance\(rating, int\)) Tj T*
+(  43 |             or isinstance\(rating, bool\)) Tj T*
+(  44 |             or rating < 1) Tj T*
+(  45 |             or rating > 5) Tj T*
+(  46 |         \):) Tj T*
+(  47 |             errors.append\("rating must be an integer from 1 to 5"\)) Tj T*
+(  48 |         else:) Tj T*
+(  49 |             clean["rating"] = rating) Tj T*
+(  50 |) Tj T*
+(  51 |     if "text" in payload:) Tj T*
+(  52 |         text = payload["text"]) Tj T*
+(  53 |         if not isinstance\(text, str\) or not text.strip\(\) or len\(text.strip\(\)\) > 5000:) Tj T*
+(  54 |             errors.append\("text must be a non-empty string of at most 5000 characters"\)) Tj T*
+(  55 |         else:) Tj T*
+(  56 |             clean["text"] = text.strip\(\)) Tj T*
+(  57 |) Tj T*
+(  58 |     return clean, errors) Tj T*
+(  59 |) Tj T*
+(  60 |) Tj T*
+(  61 | def _sort_spec\(\) -> list[tuple[str, int]]:) Tj T*
+(  62 |     requested = request.args.get\("sort", "-created_at"\)) Tj T*
+(  63 |     descending = requested.startswith\("-"\)) Tj T*
+(  64 |     field = requested[1:] if descending else requested) Tj T*
+(  65 |     if field not in SORT_FIELDS:) Tj T*
+(  66 |         raise ValueError\(f"sort must be one of: {', '.join\(sorted\(SORT_FIELDS\)\)}"\)) Tj T*
+(  67 |     return [\(field, DESCENDING if descending else ASCENDING\), \("_id", ASCENDING\)]) Tj T*
+(  68 |) Tj T*
+(  69 |) Tj T*
+(  70 | def _recalculate_business_rating\(business_id\) -> None:) Tj T*
+(  71 |     """Recompute denormalised rating and review_count for a business.""") Tj T*
+(  72 |     summary = list\() Tj T*
+(  73 |         reviews_collection.aggregate\() Tj T*
+(  74 |             [) Tj T*
+(  75 |                 {"$match": {"business_id": business_id}},) Tj T*
+(  76 |                 {) Tj T*
+(  77 |                     "$group": {) Tj T*
+(  78 |                         "_id": "$business_id",) Tj T*
+(  79 |                         "review_count": {"$sum": 1},) Tj T*
+(  80 |                         "rating": {"$avg": "$rating"},) Tj T*
+(  81 |                     }) Tj T*
+(  82 |                 },) Tj T*
+(  83 |             ]) Tj T*
+(  84 |         \)) Tj T*
+(  85 |     \)) Tj T*
+ET
+endstream
+endobj
+27 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 26 0 R >>
+endobj
+28 0 obj
+<< /Length 4196 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  86 |     if summary:) Tj T*
+(  87 |         rating = round\(float\(summary[0]["rating"]\), 2\)) Tj T*
+(  88 |         review_count = int\(summary[0]["review_count"]\)) Tj T*
+(  89 |     else:) Tj T*
+(  90 |         rating = 0.0) Tj T*
+(  91 |         review_count = 0) Tj T*
+(  92 |     businesses_collection.update_one\() Tj T*
+(  93 |         {"_id": business_id},) Tj T*
+(  94 |         {"$set": {"rating": rating, "review_count": review_count, "updated_at": utcnow\(\)}},) Tj T*
+(  95 |     \)) Tj T*
+(  96 |) Tj T*
+(  97 |) Tj T*
+(  98 | def _business_or_404\(business_id: str\):) Tj T*
+(  99 |     business_object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 100 |     business = businesses_collection.find_one\({"_id": business_object_id}\)) Tj T*
+( 101 |     return business_object_id, business) Tj T*
+( 102 |) Tj T*
+( 103 |) Tj T*
+( 104 | @reviews_bp.get\("/<string:business_id>/reviews"\)) Tj T*
+( 105 | def list_reviews\(business_id: str\):) Tj T*
+( 106 |     """List reviews for one business with pagination and filters.""") Tj T*
+( 107 |     try:) Tj T*
+( 108 |         business_object_id, business = _business_or_404\(business_id\)) Tj T*
+( 109 |         page, page_size, skip = parse_pagination\(\)) Tj T*
+( 110 |         sort_spec = _sort_spec\(\)) Tj T*
+( 111 |     except ValueError as exc:) Tj T*
+( 112 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 113 |) Tj T*
+( 114 |     if not business:) Tj T*
+( 115 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 116 |) Tj T*
+( 117 |     filters: dict[str, Any] = {"business_id": business_object_id}) Tj T*
+( 118 |     rating_raw = request.args.get\("rating"\)) Tj T*
+( 119 |     if rating_raw is not None:) Tj T*
+( 120 |         try:) Tj T*
+( 121 |             rating = int\(rating_raw\)) Tj T*
+( 122 |         except ValueError:) Tj T*
+( 123 |             return jsonify\({"error": "rating must be an integer"}\), 400) Tj T*
+( 124 |         if not 1 <= rating <= 5:) Tj T*
+( 125 |             return jsonify\({"error": "rating must be between 1 and 5"}\), 400) Tj T*
+( 126 |         filters["rating"] = rating) Tj T*
+( 127 |) Tj T*
+( 128 |     total = reviews_collection.count_documents\(filters\)) Tj T*
+( 129 |     documents = \() Tj T*
+( 130 |         reviews_collection.find\(filters\)) Tj T*
+( 131 |         .sort\(sort_spec\)) Tj T*
+( 132 |         .skip\(skip\)) Tj T*
+( 133 |         .limit\(page_size\)) Tj T*
+( 134 |     \)) Tj T*
+( 135 |     return jsonify\() Tj T*
+( 136 |         {) Tj T*
+( 137 |             "business_id": business_id,) Tj T*
+( 138 |             "items": json_safe\(list\(documents\)\),) Tj T*
+( 139 |             **pagination_payload\(page, page_size, total\),) Tj T*
+( 140 |         }) Tj T*
+( 141 |     \), 200) Tj T*
+( 142 |) Tj T*
+( 143 |) Tj T*
+( 144 | @reviews_bp.post\("/<string:business_id>/reviews"\)) Tj T*
+( 145 | @jwt_required) Tj T*
+( 146 | def create_review\(business_id: str\):) Tj T*
+( 147 |     """Create one review for a business as an authenticated user.""") Tj T*
+( 148 |     try:) Tj T*
+( 149 |         business_object_id, business = _business_or_404\(business_id\)) Tj T*
+( 150 |     except ValueError as exc:) Tj T*
+( 151 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 152 |     if not business:) Tj T*
+( 153 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 154 |) Tj T*
+( 155 |     payload = request.get_json\(silent=True\)) Tj T*
+( 156 |     if not isinstance\(payload, dict\):) Tj T*
+( 157 |         return jsonify\({"error": "JSON object body is required"}\), 400) Tj T*
+( 158 |     clean, errors = _validate_review_payload\(payload\)) Tj T*
+( 159 |     if errors:) Tj T*
+( 160 |         return jsonify\({"error": "Validation failed", "details": errors}\), 400) Tj T*
+( 161 |) Tj T*
+( 162 |     user_id = g.current_user["_id"]) Tj T*
+( 163 |     duplicate = reviews_collection.find_one\() Tj T*
+( 164 |         {"business_id": business_object_id, "user_id": user_id}) Tj T*
+( 165 |     \)) Tj T*
+( 166 |     if duplicate:) Tj T*
+( 167 |         return jsonify\({"error": "This user already reviewed this business"}\), 409) Tj T*
+( 168 |) Tj T*
+ET
+endstream
+endobj
+29 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 28 0 R >>
+endobj
+30 0 obj
+<< /Length 4416 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 169 |     now = utcnow\(\)) Tj T*
+( 170 |     document = {) Tj T*
+( 171 |         "business_id": business_object_id,) Tj T*
+( 172 |         "user_id": user_id,) Tj T*
+( 173 |         "rating": clean["rating"],) Tj T*
+( 174 |         "text": clean["text"],) Tj T*
+( 175 |         "created_at": now,) Tj T*
+( 176 |         "updated_at": now,) Tj T*
+( 177 |     }) Tj T*
+( 178 |     result = reviews_collection.insert_one\(document\)) Tj T*
+( 179 |     document["_id"] = result.inserted_id) Tj T*
+( 180 |     _recalculate_business_rating\(business_object_id\)) Tj T*
+( 181 |     return \() Tj T*
+( 182 |         jsonify\(json_safe\(document\)\),) Tj T*
+( 183 |         201,) Tj T*
+( 184 |         {) Tj T*
+( 185 |             "Location": \() Tj T*
+( 186 |                 f"/api/v1.0/businesses/{business_id}/reviews/{result.inserted_id}") Tj T*
+( 187 |             \)) Tj T*
+( 188 |         },) Tj T*
+( 189 |     \)) Tj T*
+( 190 |) Tj T*
+( 191 |) Tj T*
+( 192 | @reviews_bp.get\("/<string:business_id>/reviews/<string:review_id>"\)) Tj T*
+( 193 | def get_review\(business_id: str, review_id: str\):) Tj T*
+( 194 |     """Return one review belonging to the specified business.""") Tj T*
+( 195 |     try:) Tj T*
+( 196 |         business_object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 197 |         review_object_id = parse_object_id\(review_id, "review_id"\)) Tj T*
+( 198 |     except ValueError as exc:) Tj T*
+( 199 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 200 |) Tj T*
+( 201 |     if not businesses_collection.find_one\({"_id": business_object_id}\):) Tj T*
+( 202 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 203 |) Tj T*
+( 204 |     review = reviews_collection.find_one\() Tj T*
+( 205 |         {"_id": review_object_id, "business_id": business_object_id}) Tj T*
+( 206 |     \)) Tj T*
+( 207 |     if not review:) Tj T*
+( 208 |         return jsonify\({"error": "Review not found"}\), 404) Tj T*
+( 209 |     return jsonify\(json_safe\(review\)\), 200) Tj T*
+( 210 |) Tj T*
+( 211 |) Tj T*
+( 212 | @reviews_bp.put\("/<string:business_id>/reviews/<string:review_id>"\)) Tj T*
+( 213 | @jwt_required) Tj T*
+( 214 | def update_review\(business_id: str, review_id: str\):) Tj T*
+( 215 |     """Update an owned review; administrators may update any review.""") Tj T*
+( 216 |     try:) Tj T*
+( 217 |         business_object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 218 |         review_object_id = parse_object_id\(review_id, "review_id"\)) Tj T*
+( 219 |     except ValueError as exc:) Tj T*
+( 220 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 221 |) Tj T*
+( 222 |     if not businesses_collection.find_one\({"_id": business_object_id}\):) Tj T*
+( 223 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 224 |) Tj T*
+( 225 |     review = reviews_collection.find_one\() Tj T*
+( 226 |         {"_id": review_object_id, "business_id": business_object_id}) Tj T*
+( 227 |     \)) Tj T*
+( 228 |     if not review:) Tj T*
+( 229 |         return jsonify\({"error": "Review not found"}\), 404) Tj T*
+( 230 |) Tj T*
+( 231 |     current_user = g.current_user) Tj T*
+( 232 |     if review.get\("user_id"\) != current_user["_id"] and not current_user.get\() Tj T*
+( 233 |         "admin", False) Tj T*
+( 234 |     \):) Tj T*
+( 235 |         return jsonify\({"error": "You may only edit your own review"}\), 403) Tj T*
+( 236 |) Tj T*
+( 237 |     payload = request.get_json\(silent=True\)) Tj T*
+( 238 |     if not isinstance\(payload, dict\):) Tj T*
+( 239 |         return jsonify\({"error": "JSON object body is required"}\), 400) Tj T*
+( 240 |     clean, errors = _validate_review_payload\(payload, partial=True\)) Tj T*
+( 241 |     if errors:) Tj T*
+( 242 |         return jsonify\({"error": "Validation failed", "details": errors}\), 400) Tj T*
+( 243 |     if not clean:) Tj T*
+( 244 |         return jsonify\({"error": "At least one of rating or text is required"}\), 400) Tj T*
+( 245 |) Tj T*
+( 246 |     clean["updated_at"] = utcnow\(\)) Tj T*
+( 247 |     reviews_collection.update_one\({"_id": review_object_id}, {"$set": clean}\)) Tj T*
+( 248 |     _recalculate_business_rating\(business_object_id\)) Tj T*
+( 249 |     updated = reviews_collection.find_one\({"_id": review_object_id}\)) Tj T*
+( 250 |     return jsonify\(json_safe\(updated\)\), 200) Tj T*
+( 251 |) Tj T*
+ET
+endstream
+endobj
+31 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 30 0 R >>
+endobj
+32 0 obj
+<< /Length 4028 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 252 |) Tj T*
+( 253 | @reviews_bp.delete\("/<string:business_id>/reviews/<string:review_id>"\)) Tj T*
+( 254 | @jwt_required) Tj T*
+( 255 | @admin_required) Tj T*
+( 256 | def delete_review\(business_id: str, review_id: str\):) Tj T*
+( 257 |     """Delete any review as an administrator.""") Tj T*
+( 258 |     try:) Tj T*
+( 259 |         business_object_id = parse_object_id\(business_id, "business_id"\)) Tj T*
+( 260 |         review_object_id = parse_object_id\(review_id, "review_id"\)) Tj T*
+( 261 |     except ValueError as exc:) Tj T*
+( 262 |         return jsonify\({"error": str\(exc\)}\), 400) Tj T*
+( 263 |) Tj T*
+( 264 |     if not businesses_collection.find_one\({"_id": business_object_id}\):) Tj T*
+( 265 |         return jsonify\({"error": "Business not found"}\), 404) Tj T*
+( 266 |) Tj T*
+( 267 |     result = reviews_collection.delete_one\() Tj T*
+( 268 |         {"_id": review_object_id, "business_id": business_object_id}) Tj T*
+( 269 |     \)) Tj T*
+( 270 |     if result.deleted_count == 0:) Tj T*
+( 271 |         return jsonify\({"error": "Review not found"}\), 404) Tj T*
+( 272 |) Tj T*
+( 273 |     _recalculate_business_rating\(business_object_id\)) Tj T*
+( 274 |     return "", 204) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/create_users.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Compatibility entry point required by AGENT.md.""") Tj T*
+(   2 |) Tj T*
+(   3 | from scripts.create_users import main) Tj T*
+(   4 |) Tj T*
+(   5 |) Tj T*
+(   6 | if __name__ == "__main__":) Tj T*
+(   7 |     main\(\)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/scripts/import_seed_data.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Import generated LocalLens JSON with MongoDB's Extended JSON support.""") Tj T*
+(   2 |) Tj T*
+(   3 | from __future__ import annotations) Tj T*
+(   4 |) Tj T*
+(   5 | import argparse) Tj T*
+(   6 | import sys) Tj T*
+(   7 | from pathlib import Path) Tj T*
+(   8 |) Tj T*
+(   9 | from bson import json_util) Tj T*
+(  10 |) Tj T*
+(  11 | ROOT = Path\(__file__\).resolve\(\).parent.parent) Tj T*
+(  12 | sys.path.insert\(0, str\(ROOT\)\)) Tj T*
+(  13 |) Tj T*
+(  14 | from globals import \(  # noqa: E402) Tj T*
+(  15 |     businesses_collection,) Tj T*
+(  16 |     ensure_indexes,) Tj T*
+(  17 |     reviews_collection,) Tj T*
+(  18 | \)) Tj T*
+(  19 |) Tj T*
+(  20 |) Tj T*
+(  21 | def load_documents\(path: Path\) -> list[dict]:) Tj T*
+(  22 |     with path.open\("r", encoding="utf-8"\) as handle:) Tj T*
+(  23 |         return json_util.loads\(handle.read\(\)\)) Tj T*
+(  24 |) Tj T*
+(  25 |) Tj T*
+(  26 | def main\(\) -> None:) Tj T*
+(  27 |     parser = argparse.ArgumentParser\(description="Import LocalLens seed data"\)) Tj T*
+(  28 |     parser.add_argument\() Tj T*
+(  29 |         "--reset",) Tj T*
+(  30 |         action="store_true",) Tj T*
+(  31 |         help="Delete existing businesses/reviews before importing \(destructive\)",) Tj T*
+(  32 |     \)) Tj T*
+(  33 |     args = parser.parse_args\(\)) Tj T*
+(  34 |) Tj T*
+(  35 |     business_path = ROOT / "data" / "businesses.json") Tj T*
+(  36 |     review_path = ROOT / "data" / "reviews.json") Tj T*
+(  37 |     if not business_path.exists\(\) or not review_path.exists\(\):) Tj T*
+(  38 |         raise SystemExit\("Seed JSON is missing; run scripts/make_seed_data.py first"\)) Tj T*
+(  39 |) Tj T*
+(  40 |     if args.reset:) Tj T*
+(  41 |         businesses_collection.delete_many\({}\)) Tj T*
+(  42 |         reviews_collection.delete_many\({}\)) Tj T*
+(  43 |) Tj T*
+(  44 |     if businesses_collection.count_documents\({}\) or reviews_collection.count_documents\({}\):) Tj T*
+(  45 |         raise SystemExit\() Tj T*
+ET
+endstream
+endobj
+33 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 32 0 R >>
+endobj
+34 0 obj
+<< /Length 3929 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  46 |             "Target collections are not empty. Re-run with --reset only if deletion is intended.") Tj T*
+(  47 |         \)) Tj T*
+(  48 |) Tj T*
+(  49 |     businesses = load_documents\(business_path\)) Tj T*
+(  50 |     reviews = load_documents\(review_path\)) Tj T*
+(  51 |     businesses_collection.insert_many\(businesses\)) Tj T*
+(  52 |     reviews_collection.insert_many\(reviews\)) Tj T*
+(  53 |     ensure_indexes\(\)) Tj T*
+(  54 |     print\(f"Imported {len\(businesses\)} businesses and {len\(reviews\)} reviews."\)) Tj T*
+(  55 |) Tj T*
+(  56 |) Tj T*
+(  57 | if __name__ == "__main__":) Tj T*
+(  58 |     main\(\)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/scripts/export_data.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Export each LocalLens collection as MongoDB Extended JSON.) Tj T*
+(   2 |) Tj T*
+(   3 | This is a fallback for environments where the MongoDB Database Tools) Tj T*
+(   4 | \(mongoexport\) are not installed. It never prints credentials.) Tj T*
+(   5 | """) Tj T*
+(   6 |) Tj T*
+(   7 | from __future__ import annotations) Tj T*
+(   8 |) Tj T*
+(   9 | import sys) Tj T*
+(  10 | from pathlib import Path) Tj T*
+(  11 |) Tj T*
+(  12 | from bson import json_util) Tj T*
+(  13 |) Tj T*
+(  14 | ROOT = Path\(__file__\).resolve\(\).parent.parent) Tj T*
+(  15 | sys.path.insert\(0, str\(ROOT\)\)) Tj T*
+(  16 |) Tj T*
+(  17 | from globals import DB  # noqa: E402) Tj T*
+(  18 |) Tj T*
+(  19 | EXPORT_DIR = ROOT / "data" / "export") Tj T*
+(  20 | COLLECTIONS = \("businesses", "reviews", "users", "blacklist"\)) Tj T*
+(  21 |) Tj T*
+(  22 |) Tj T*
+(  23 | def main\(\) -> None:) Tj T*
+(  24 |     EXPORT_DIR.mkdir\(parents=True, exist_ok=True\)) Tj T*
+(  25 |     for name in COLLECTIONS:) Tj T*
+(  26 |         documents = list\(DB[name].find\({}\)\)) Tj T*
+(  27 |         output = EXPORT_DIR / f"{name}.json") Tj T*
+(  28 |         output.write_text\() Tj T*
+(  29 |             json_util.dumps\(documents, indent=2, ensure_ascii=False\),) Tj T*
+(  30 |             encoding="utf-8",) Tj T*
+(  31 |         \)) Tj T*
+(  32 |         print\(f"Exported {len\(documents\)} documents from {name} to {output}"\)) Tj T*
+(  33 |     print\("Note: users.json contains password hashes, not plaintext passwords."\)) Tj T*
+(  34 |) Tj T*
+(  35 |) Tj T*
+(  36 | if __name__ == "__main__":) Tj T*
+(  37 |     main\(\)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/scripts/make_seed_data.py) Tj T*
+(====================================================================================================) Tj T*
+(   1 | """Generate deterministic LocalLens seed JSON for MongoDB import.) Tj T*
+(   2 |) Tj T*
+(   3 | The generated data is synthetic and intentionally independent of Yelp. It) Tj T*
+(   4 | contains 120 parent businesses and 600 child reviews, with text, numeric,) Tj T*
+(   5 | date, boolean and GeoJSON values.) Tj T*
+(   6 | """) Tj T*
+(   7 |) Tj T*
+(   8 | from __future__ import annotations) Tj T*
+(   9 |) Tj T*
+(  10 | import json) Tj T*
+(  11 | import random) Tj T*
+(  12 | from datetime import datetime, timedelta, timezone) Tj T*
+(  13 | from pathlib import Path) Tj T*
+(  14 |) Tj T*
+(  15 | SEED = 661) Tj T*
+(  16 | BUSINESS_COUNT = 120) Tj T*
+(  17 | REVIEWS_PER_BUSINESS = 5) Tj T*
+(  18 | BASE_DATE = datetime\(2025, 1, 1, tzinfo=timezone.utc\)) Tj T*
+(  19 | ROOT = Path\(__file__\).resolve\(\).parent.parent) Tj T*
+(  20 | DATA_DIR = ROOT / "data") Tj T*
+(  21 |) Tj T*
+(  22 | TOWNS = [) Tj T*
+(  23 |     \("Belfast", -5.9301, 54.5973, "BT1"\),) Tj T*
+(  24 |     \("Derry", -7.3093, 54.9966, "BT48"\),) Tj T*
+(  25 |     \("Lisburn", -6.0580, 54.5162, "BT28"\),) Tj T*
+ET
+endstream
+endobj
+35 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 34 0 R >>
+endobj
+36 0 obj
+<< /Length 3409 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(  26 |     \("Newry", -6.3374, 54.1751, "BT34"\),) Tj T*
+(  27 |     \("Armagh", -6.6540, 54.3503, "BT61"\),) Tj T*
+(  28 |     \("Bangor", -5.6689, 54.6534, "BT20"\),) Tj T*
+(  29 |     \("Coleraine", -6.6760, 55.1326, "BT52"\),) Tj T*
+(  30 |     \("Enniskillen", -7.6380, 54.3438, "BT74"\),) Tj T*
+(  31 | ]) Tj T*
+(  32 | CATEGORIES = [) Tj T*
+(  33 |     "Cafe",) Tj T*
+(  34 |     "Restaurant",) Tj T*
+(  35 |     "Bakery",) Tj T*
+(  36 |     "Bookshop",) Tj T*
+(  37 |     "Bar",) Tj T*
+(  38 |     "Deli",) Tj T*
+(  39 |     "Gallery",) Tj T*
+(  40 |     "Grocery",) Tj T*
+(  41 |     "Hotel",) Tj T*
+(  42 |     "Museum",) Tj T*
+(  43 | ]) Tj T*
+(  44 | NAME_PREFIXES = [) Tj T*
+(  45 |     "Harbour",) Tj T*
+(  46 |     "Linen",) Tj T*
+(  47 |     "Meadow",) Tj T*
+(  48 |     "Oak",) Tj T*
+(  49 |     "Riverside",) Tj T*
+(  50 |     "North",) Tj T*
+(  51 |     "Bright",) Tj T*
+(  52 |     "Old Town",) Tj T*
+(  53 |     "Copper",) Tj T*
+(  54 |     "Willow",) Tj T*
+(  55 | ]) Tj T*
+(  56 | NAME_SUFFIXES = [) Tj T*
+(  57 |     "Kitchen",) Tj T*
+(  58 |     "House",) Tj T*
+(  59 |     "Room",) Tj T*
+(  60 |     "Market",) Tj T*
+(  61 |     "Cafe",) Tj T*
+(  62 |     "Studio",) Tj T*
+(  63 |     "Corner",) Tj T*
+(  64 |     "Larder",) Tj T*
+(  65 |     "Social",) Tj T*
+(  66 |     "Garden",) Tj T*
+(  67 | ]) Tj T*
+(  68 | DESCRIPTIONS = [) Tj T*
+(  69 |     "Independent local business with seasonal produce.",) Tj T*
+(  70 |     "Neighbourhood venue focused on accessible service.",) Tj T*
+(  71 |     "Family-run destination with a strong local identity.",) Tj T*
+(  72 |     "Relaxed space for food, drink and community events.",) Tj T*
+(  73 |     "Small team offering carefully selected products.",) Tj T*
+(  74 | ]) Tj T*
+(  75 | REVIEW_PHRASES = [) Tj T*
+(  76 |     "Friendly service and a welcoming atmosphere.",) Tj T*
+(  77 |     "Great value and easy to find from the town centre.",) Tj T*
+(  78 |     "The menu was varied and the staff were helpful.",) Tj T*
+(  79 |     "A pleasant visit, although the venue was busy.",) Tj T*
+(  80 |     "Would return and recommend it to friends.",) Tj T*
+(  81 |     "Good quality overall; accessibility information was useful.",) Tj T*
+(  82 | ]) Tj T*
+(  83 |) Tj T*
+(  84 | # Fixed ObjectIds keep review references valid when create_users.py runs.) Tj T*
+(  85 | USER_IDS = [) Tj T*
+(  86 |     "a00000000000000000000001",) Tj T*
+(  87 |     "a00000000000000000000002",) Tj T*
+(  88 |     "a00000000000000000000003",) Tj T*
+(  89 |     "a00000000000000000000004",) Tj T*
+(  90 | ]) Tj T*
+(  91 |) Tj T*
+(  92 |) Tj T*
+(  93 | def object_id\(value: str\) -> dict[str, str]:) Tj T*
+(  94 |     return {"$oid": value}) Tj T*
+(  95 |) Tj T*
+(  96 |) Tj T*
+(  97 | def extended_date\(value: datetime\) -> dict[str, str]:) Tj T*
+(  98 |     return {"$date": value.isoformat\(\).replace\("+00:00", "Z"\)}) Tj T*
+(  99 |) Tj T*
+( 100 |) Tj T*
+( 101 | def business_object_id\(index: int\) -> str:) Tj T*
+( 102 |     return f"{0xB00000000000000000000000 + index:024x}") Tj T*
+( 103 |) Tj T*
+( 104 |) Tj T*
+( 105 | def business_name\(index: int, category: str\) -> str:) Tj T*
+( 106 |     prefix = NAME_PREFIXES[index % len\(NAME_PREFIXES\)]) Tj T*
+( 107 |     suffix = NAME_SUFFIXES[\(index // len\(NAME_PREFIXES\)\) % len\(NAME_SUFFIXES\)]) Tj T*
+( 108 |     return f"{prefix} {category} {suffix} {index + 1}") Tj T*
+ET
+endstream
+endobj
+37 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 36 0 R >>
+endobj
+38 0 obj
+<< /Length 4548 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+( 109 |) Tj T*
+( 110 |) Tj T*
+( 111 | def main\(\) -> None:) Tj T*
+( 112 |     rng = random.Random\(SEED\)) Tj T*
+( 113 |     DATA_DIR.mkdir\(parents=True, exist_ok=True\)) Tj T*
+( 114 |) Tj T*
+( 115 |     businesses: list[dict] = []) Tj T*
+( 116 |     reviews: list[dict] = []) Tj T*
+( 117 |) Tj T*
+( 118 |     for business_index in range\(BUSINESS_COUNT\):) Tj T*
+( 119 |         town, town_lon, town_lat, postcode_prefix = TOWNS[) Tj T*
+( 120 |             business_index % len\(TOWNS\)) Tj T*
+( 121 |         ]) Tj T*
+( 122 |         categories = rng.sample\(CATEGORIES, k=rng.choice\([1, 1, 2, 2, 3]\)\)) Tj T*
+( 123 |         longitude = town_lon + rng.uniform\(-0.035, 0.035\)) Tj T*
+( 124 |         latitude = town_lat + rng.uniform\(-0.025, 0.025\)) Tj T*
+( 125 |         created_at = BASE_DATE + timedelta\(days=business_index * 3\)) Tj T*
+( 126 |         business_oid = business_object_id\(business_index\)) Tj T*
+( 127 |) Tj T*
+( 128 |         ratings: list[int] = []) Tj T*
+( 129 |         for review_index in range\(REVIEWS_PER_BUSINESS\):) Tj T*
+( 130 |             rating = rng.randint\(1, 5\)) Tj T*
+( 131 |             ratings.append\(rating\)) Tj T*
+( 132 |             review_date = created_at + timedelta\() Tj T*
+( 133 |                 days=10 + review_index * 17,) Tj T*
+( 134 |                 hours=rng.randint\(8, 20\),) Tj T*
+( 135 |             \)) Tj T*
+( 136 |             review_number = business_index * REVIEWS_PER_BUSINESS + review_index) Tj T*
+( 137 |             reviews.append\() Tj T*
+( 138 |                 {) Tj T*
+( 139 |                     "_id": object_id\(f"{0xC00000000000000000000000 + review_number:024x}"\),) Tj T*
+( 140 |                     "business_id": object_id\(business_oid\),) Tj T*
+( 141 |                     "user_id": object_id\(USER_IDS[review_index % len\(USER_IDS\)]\),) Tj T*
+( 142 |                     "rating": rating,) Tj T*
+( 143 |                     "text": rng.choice\(REVIEW_PHRASES\),) Tj T*
+( 144 |                     "created_at": extended_date\(review_date\),) Tj T*
+( 145 |                     "updated_at": extended_date\(review_date\),) Tj T*
+( 146 |                 }) Tj T*
+( 147 |             \)) Tj T*
+( 148 |) Tj T*
+( 149 |         average_rating = round\(sum\(ratings\) / len\(ratings\), 2\)) Tj T*
+( 150 |         businesses.append\() Tj T*
+( 151 |             {) Tj T*
+( 152 |                 "_id": object_id\(business_oid\),) Tj T*
+( 153 |                 "name": business_name\(business_index, categories[0]\),) Tj T*
+( 154 |                 "town": town,) Tj T*
+( 155 |                 "address": f"{rng.randint\(1, 180\)} Sample Street",) Tj T*
+( 156 |                 "postcode": f"{postcode_prefix} {rng.randint\(1, 9\)}AA",) Tj T*
+( 157 |                 "categories": categories,) Tj T*
+( 158 |                 "description": rng.choice\(DESCRIPTIONS\),) Tj T*
+( 159 |                 "location": {) Tj T*
+( 160 |                     "type": "Point",) Tj T*
+( 161 |                     "coordinates": [round\(longitude, 6\), round\(latitude, 6\)],) Tj T*
+( 162 |                 },) Tj T*
+( 163 |                 "price_level": rng.randint\(1, 4\),) Tj T*
+( 164 |                 "active": True,) Tj T*
+( 165 |                 "rating": average_rating,) Tj T*
+( 166 |                 "review_count": len\(ratings\),) Tj T*
+( 167 |                 "created_at": extended_date\(created_at\),) Tj T*
+( 168 |                 "updated_at": extended_date\(created_at\),) Tj T*
+( 169 |             }) Tj T*
+( 170 |         \)) Tj T*
+( 171 |) Tj T*
+( 172 |     \(DATA_DIR / "businesses.json"\).write_text\() Tj T*
+( 173 |         json.dumps\(businesses, indent=2, ensure_ascii=False\), encoding="utf-8") Tj T*
+( 174 |     \)) Tj T*
+( 175 |     \(DATA_DIR / "reviews.json"\).write_text\() Tj T*
+( 176 |         json.dumps\(reviews, indent=2, ensure_ascii=False\), encoding="utf-8") Tj T*
+( 177 |     \)) Tj T*
+( 178 |     print\() Tj T*
+( 179 |         f"Generated {len\(businesses\)} businesses and {len\(reviews\)} reviews in {DATA_DIR}") Tj T*
+( 180 |     \)) Tj T*
+( 181 |) Tj T*
+( 182 |) Tj T*
+( 183 | if __name__ == "__main__":) Tj T*
+( 184 |     main\(\)) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/requirements.txt) Tj T*
+(====================================================================================================) Tj T*
+(   1 | Flask>=3.0,<4) Tj T*
+(   2 | flask-cors>=4.0,<7) Tj T*
+(   3 | PyJWT>=2.8,<3) Tj T*
+ET
+endstream
+endobj
+39 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 38 0 R >>
+endobj
+40 0 obj
+<< /Length 753 >>
+stream
+BT
+/F2 7 Tf
+9 TL
+50 805 Td
+(   4 | bcrypt>=4.1,<6) Tj T*
+(   5 | pymongo>=4.6,<5) Tj T*
+() Tj T*
+(====================================================================================================) Tj T*
+(FILE: biz_bp/.env.example) Tj T*
+(====================================================================================================) Tj T*
+(   1 | MONGO_URI=mongodb://127.0.0.1:27017) Tj T*
+(   2 | MONGO_DB_NAME=locallens) Tj T*
+(   3 | JWT_SECRET=replace-with-a-long-random-value) Tj T*
+(   4 | JWT_EXPIRY_SECONDS=28800) Tj T*
+(   5 | HOST=127.0.0.1) Tj T*
+(   6 | PORT=5000) Tj T*
+(   7 | FLASK_DEBUG=0) Tj T*
+(   8 | ADMIN_PASSWORD=replace-with-a-local-demo-password) Tj T*
+(   9 | USER_PASSWORD=replace-with-a-local-demo-password) Tj T*
+ET
+endstream
+endobj
+41 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 40 0 R >>
+endobj
+42 0 obj
+<< /Title (LocalLens Backend API Code Listing) /Producer (LocalLens submission builder) /CreationDate (D:20261030164308) >>
+endobj
+xref
+0 43
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000132 00000 n 
+0000000314 00000 n 
+0000004264 00000 n 
+0000004400 00000 n 
+0000008526 00000 n 
+0000008662 00000 n 
+0000012815 00000 n 
+0000012951 00000 n 
+0000017035 00000 n 
+0000017173 00000 n 
+0000021346 00000 n 
+0000021484 00000 n 
+0000025211 00000 n 
+0000025349 00000 n 
+0000029915 00000 n 
+0000030053 00000 n 
+0000034462 00000 n 
+0000034600 00000 n 
+0000038603 00000 n 
+0000038741 00000 n 
+0000042945 00000 n 
+0000043083 00000 n 
+0000047372 00000 n 
+0000047510 00000 n 
+0000051513 00000 n 
+0000051651 00000 n 
+0000055900 00000 n 
+0000056038 00000 n 
+0000060507 00000 n 
+0000060645 00000 n 
+0000064726 00000 n 
+0000064864 00000 n 
+0000068846 00000 n 
+0000068984 00000 n 
+0000072446 00000 n 
+0000072584 00000 n 
+0000077185 00000 n 
+0000077323 00000 n 
+0000078128 00000 n 
+0000078266 00000 n 
+trailer
+<< /Size 43 /Root 1 0 R /Info 42 0 R >>
+startxref
+78406
+%%EOF

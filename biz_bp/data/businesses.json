@@ -1,0 +1,3711 @@
+[
+  {
+    "_id": {
+      "$oid": "b00000000000000000000000"
+    },
+    "name": "Harbour Gallery Kitchen 1",
+    "town": "Belfast",
+    "address": "180 Sample Street",
+    "postcode": "BT1 1AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.943384,
+        54.576594
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 4.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-01T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000001"
+    },
+    "name": "Linen Grocery Kitchen 2",
+    "town": "Derry",
+    "address": "130 Sample Street",
+    "postcode": "BT48 8AA",
+    "categories": [
+      "Grocery",
+      "Restaurant",
+      "Deli"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.307852,
+        55.016913
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-04T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-04T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000002"
+    },
+    "name": "Meadow Bar Kitchen 3",
+    "town": "Lisburn",
+    "address": "29 Sample Street",
+    "postcode": "BT28 6AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.050676,
+        54.504404
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-07T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-07T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000003"
+    },
+    "name": "Oak Bookshop Kitchen 4",
+    "town": "Newry",
+    "address": "83 Sample Street",
+    "postcode": "BT34 8AA",
+    "categories": [
+      "Bookshop",
+      "Gallery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.369336,
+        54.179941
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 1.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-10T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-10T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000004"
+    },
+    "name": "Riverside Gallery Kitchen 5",
+    "town": "Armagh",
+    "address": "165 Sample Street",
+    "postcode": "BT61 6AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.645592,
+        54.34252
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-13T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-13T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000005"
+    },
+    "name": "North Museum Kitchen 6",
+    "town": "Bangor",
+    "address": "129 Sample Street",
+    "postcode": "BT20 1AA",
+    "categories": [
+      "Museum",
+      "Bar",
+      "Restaurant"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.65987,
+        54.652516
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-16T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-16T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000006"
+    },
+    "name": "Bright Bookshop Kitchen 7",
+    "town": "Coleraine",
+    "address": "132 Sample Street",
+    "postcode": "BT52 9AA",
+    "categories": [
+      "Bookshop",
+      "Hotel"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.650043,
+        55.124131
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-19T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-19T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000007"
+    },
+    "name": "Old Town Hotel Kitchen 8",
+    "town": "Enniskillen",
+    "address": "5 Sample Street",
+    "postcode": "BT74 2AA",
+    "categories": [
+      "Hotel"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.637906,
+        54.344882
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-22T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-22T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000008"
+    },
+    "name": "Copper Bar Kitchen 9",
+    "town": "Belfast",
+    "address": "173 Sample Street",
+    "postcode": "BT1 7AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.899182,
+        54.58118
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 1.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-25T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-25T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000009"
+    },
+    "name": "Willow Deli Kitchen 10",
+    "town": "Derry",
+    "address": "38 Sample Street",
+    "postcode": "BT48 4AA",
+    "categories": [
+      "Deli",
+      "Bookshop"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.339405,
+        55.008308
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-28T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-28T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000a"
+    },
+    "name": "Harbour Grocery House 11",
+    "town": "Lisburn",
+    "address": "41 Sample Street",
+    "postcode": "BT28 2AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.084219,
+        54.517797
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-01-31T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-01-31T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000b"
+    },
+    "name": "Linen Bar House 12",
+    "town": "Newry",
+    "address": "55 Sample Street",
+    "postcode": "BT34 4AA",
+    "categories": [
+      "Bar",
+      "Deli",
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.364786,
+        54.176867
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-03T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-03T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000c"
+    },
+    "name": "Meadow Bakery House 13",
+    "town": "Armagh",
+    "address": "2 Sample Street",
+    "postcode": "BT61 2AA",
+    "categories": [
+      "Bakery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.640629,
+        54.351815
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-06T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-06T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000d"
+    },
+    "name": "Oak Museum House 14",
+    "town": "Bangor",
+    "address": "142 Sample Street",
+    "postcode": "BT20 9AA",
+    "categories": [
+      "Museum"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.665487,
+        54.672395
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-09T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-09T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000e"
+    },
+    "name": "Riverside Bar House 15",
+    "town": "Coleraine",
+    "address": "173 Sample Street",
+    "postcode": "BT52 8AA",
+    "categories": [
+      "Bar",
+      "Hotel"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.708546,
+        55.144687
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-12T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-12T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000000f"
+    },
+    "name": "North Restaurant House 16",
+    "town": "Enniskillen",
+    "address": "120 Sample Street",
+    "postcode": "BT74 5AA",
+    "categories": [
+      "Restaurant"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.651447,
+        54.35666
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-15T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-15T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000010"
+    },
+    "name": "Bright Deli House 17",
+    "town": "Belfast",
+    "address": "155 Sample Street",
+    "postcode": "BT1 1AA",
+    "categories": [
+      "Deli"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.953649,
+        54.579161
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-18T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-18T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000011"
+    },
+    "name": "Old Town Grocery House 18",
+    "town": "Derry",
+    "address": "32 Sample Street",
+    "postcode": "BT48 7AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.335543,
+        54.992868
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-21T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-21T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000012"
+    },
+    "name": "Copper Hotel House 19",
+    "town": "Lisburn",
+    "address": "113 Sample Street",
+    "postcode": "BT28 6AA",
+    "categories": [
+      "Hotel",
+      "Bookshop"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.03438,
+        54.491986
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-24T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-24T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000013"
+    },
+    "name": "Willow Deli House 20",
+    "town": "Newry",
+    "address": "71 Sample Street",
+    "postcode": "BT34 5AA",
+    "categories": [
+      "Deli",
+      "Restaurant"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.365115,
+        54.17205
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-02-27T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-02-27T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000014"
+    },
+    "name": "Harbour Bar Room 21",
+    "town": "Armagh",
+    "address": "54 Sample Street",
+    "postcode": "BT61 4AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.641401,
+        54.351753
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-02T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-02T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000015"
+    },
+    "name": "Linen Grocery Room 22",
+    "town": "Bangor",
+    "address": "64 Sample Street",
+    "postcode": "BT20 6AA",
+    "categories": [
+      "Grocery",
+      "Hotel",
+      "Cafe"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.640481,
+        54.661236
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-05T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-05T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000016"
+    },
+    "name": "Meadow Bakery Room 23",
+    "town": "Coleraine",
+    "address": "21 Sample Street",
+    "postcode": "BT52 1AA",
+    "categories": [
+      "Bakery",
+      "Restaurant"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.658866,
+        55.125792
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-08T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-08T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000017"
+    },
+    "name": "Oak Museum Room 24",
+    "town": "Enniskillen",
+    "address": "57 Sample Street",
+    "postcode": "BT74 7AA",
+    "categories": [
+      "Museum"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.60925,
+        54.329325
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-11T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-11T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000018"
+    },
+    "name": "Riverside Grocery Room 25",
+    "town": "Belfast",
+    "address": "8 Sample Street",
+    "postcode": "BT1 2AA",
+    "categories": [
+      "Grocery",
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.898147,
+        54.609101
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-14T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-14T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000019"
+    },
+    "name": "North Gallery Room 26",
+    "town": "Derry",
+    "address": "12 Sample Street",
+    "postcode": "BT48 4AA",
+    "categories": [
+      "Gallery",
+      "Bakery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.323489,
+        54.994487
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-17T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-17T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001a"
+    },
+    "name": "Bright Bakery Room 27",
+    "town": "Lisburn",
+    "address": "175 Sample Street",
+    "postcode": "BT28 4AA",
+    "categories": [
+      "Bakery",
+      "Hotel"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.043845,
+        54.535243
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 4.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-20T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-20T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001b"
+    },
+    "name": "Old Town Grocery Room 28",
+    "town": "Newry",
+    "address": "72 Sample Street",
+    "postcode": "BT34 7AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.327184,
+        54.17123
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-23T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-23T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001c"
+    },
+    "name": "Copper Deli Room 29",
+    "town": "Armagh",
+    "address": "85 Sample Street",
+    "postcode": "BT61 7AA",
+    "categories": [
+      "Deli",
+      "Museum",
+      "Restaurant"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.635873,
+        54.374855
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-26T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-26T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001d"
+    },
+    "name": "Willow Bar Room 30",
+    "town": "Bangor",
+    "address": "82 Sample Street",
+    "postcode": "BT20 7AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.66069,
+        54.663194
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-03-29T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-03-29T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001e"
+    },
+    "name": "Harbour Gallery Market 31",
+    "town": "Coleraine",
+    "address": "74 Sample Street",
+    "postcode": "BT52 9AA",
+    "categories": [
+      "Gallery",
+      "Cafe",
+      "Museum"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.649801,
+        55.127889
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-01T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-01T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000001f"
+    },
+    "name": "Linen Deli Market 32",
+    "town": "Enniskillen",
+    "address": "114 Sample Street",
+    "postcode": "BT74 1AA",
+    "categories": [
+      "Deli",
+      "Restaurant"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.649535,
+        54.337243
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-04T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-04T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000020"
+    },
+    "name": "Meadow Gallery Market 33",
+    "town": "Belfast",
+    "address": "151 Sample Street",
+    "postcode": "BT1 1AA",
+    "categories": [
+      "Gallery",
+      "Grocery",
+      "Bookshop"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.951841,
+        54.589522
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-07T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-07T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000021"
+    },
+    "name": "Oak Restaurant Market 34",
+    "town": "Derry",
+    "address": "131 Sample Street",
+    "postcode": "BT48 3AA",
+    "categories": [
+      "Restaurant",
+      "Cafe"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.282507,
+        54.991085
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-10T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-10T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000022"
+    },
+    "name": "Riverside Bookshop Market 35",
+    "town": "Lisburn",
+    "address": "179 Sample Street",
+    "postcode": "BT28 1AA",
+    "categories": [
+      "Bookshop"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.034097,
+        54.537742
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-13T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-13T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000023"
+    },
+    "name": "North Grocery Market 36",
+    "town": "Newry",
+    "address": "107 Sample Street",
+    "postcode": "BT34 1AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.317717,
+        54.195489
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-16T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-16T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000024"
+    },
+    "name": "Bright Bakery Market 37",
+    "town": "Armagh",
+    "address": "170 Sample Street",
+    "postcode": "BT61 7AA",
+    "categories": [
+      "Bakery",
+      "Cafe",
+      "Hotel"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.652732,
+        54.373974
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-19T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-19T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000025"
+    },
+    "name": "Old Town Cafe Market 38",
+    "town": "Bangor",
+    "address": "70 Sample Street",
+    "postcode": "BT20 7AA",
+    "categories": [
+      "Cafe"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.681531,
+        54.642981
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-22T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-22T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000026"
+    },
+    "name": "Copper Bar Market 39",
+    "town": "Coleraine",
+    "address": "38 Sample Street",
+    "postcode": "BT52 7AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.671408,
+        55.134258
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-25T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-25T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000027"
+    },
+    "name": "Willow Bar Market 40",
+    "town": "Enniskillen",
+    "address": "12 Sample Street",
+    "postcode": "BT74 7AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.648224,
+        54.323611
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-04-28T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-04-28T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000028"
+    },
+    "name": "Harbour Museum Cafe 41",
+    "town": "Belfast",
+    "address": "57 Sample Street",
+    "postcode": "BT1 3AA",
+    "categories": [
+      "Museum",
+      "Bookshop",
+      "Hotel"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.952555,
+        54.58455
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-01T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-01T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000029"
+    },
+    "name": "Linen Restaurant Cafe 42",
+    "town": "Derry",
+    "address": "85 Sample Street",
+    "postcode": "BT48 1AA",
+    "categories": [
+      "Restaurant",
+      "Cafe",
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.334793,
+        55.010694
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-04T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-04T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002a"
+    },
+    "name": "Meadow Deli Cafe 43",
+    "town": "Lisburn",
+    "address": "160 Sample Street",
+    "postcode": "BT28 3AA",
+    "categories": [
+      "Deli",
+      "Cafe"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.076762,
+        54.534505
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-07T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-07T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002b"
+    },
+    "name": "Oak Bakery Cafe 44",
+    "town": "Newry",
+    "address": "93 Sample Street",
+    "postcode": "BT34 9AA",
+    "categories": [
+      "Bakery",
+      "Grocery"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.346635,
+        54.177261
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-10T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-10T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002c"
+    },
+    "name": "Riverside Deli Cafe 45",
+    "town": "Armagh",
+    "address": "136 Sample Street",
+    "postcode": "BT61 8AA",
+    "categories": [
+      "Deli",
+      "Bookshop"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.64912,
+        54.347569
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-13T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-13T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002d"
+    },
+    "name": "North Deli Cafe 46",
+    "town": "Bangor",
+    "address": "119 Sample Street",
+    "postcode": "BT20 1AA",
+    "categories": [
+      "Deli",
+      "Cafe"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.696001,
+        54.642108
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-16T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-16T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002e"
+    },
+    "name": "Bright Restaurant Cafe 47",
+    "town": "Coleraine",
+    "address": "149 Sample Street",
+    "postcode": "BT52 1AA",
+    "categories": [
+      "Restaurant"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.659816,
+        55.153265
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-19T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-19T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000002f"
+    },
+    "name": "Old Town Grocery Cafe 48",
+    "town": "Enniskillen",
+    "address": "108 Sample Street",
+    "postcode": "BT74 4AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.653444,
+        54.36356
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-22T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-22T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000030"
+    },
+    "name": "Copper Bookshop Cafe 49",
+    "town": "Belfast",
+    "address": "143 Sample Street",
+    "postcode": "BT1 5AA",
+    "categories": [
+      "Bookshop",
+      "Restaurant"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.908136,
+        54.575763
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-25T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-25T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000031"
+    },
+    "name": "Willow Museum Cafe 50",
+    "town": "Derry",
+    "address": "76 Sample Street",
+    "postcode": "BT48 6AA",
+    "categories": [
+      "Museum",
+      "Grocery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.293751,
+        55.009514
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-28T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-28T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000032"
+    },
+    "name": "Harbour Grocery Studio 51",
+    "town": "Lisburn",
+    "address": "170 Sample Street",
+    "postcode": "BT28 1AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.087021,
+        54.496639
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-05-31T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-05-31T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000033"
+    },
+    "name": "Linen Bar Studio 52",
+    "town": "Newry",
+    "address": "36 Sample Street",
+    "postcode": "BT34 4AA",
+    "categories": [
+      "Bar",
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.328199,
+        54.156833
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-03T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-03T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000034"
+    },
+    "name": "Meadow Restaurant Studio 53",
+    "town": "Armagh",
+    "address": "79 Sample Street",
+    "postcode": "BT61 9AA",
+    "categories": [
+      "Restaurant",
+      "Bakery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.629695,
+        54.344032
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-06T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-06T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000035"
+    },
+    "name": "Oak Gallery Studio 54",
+    "town": "Bangor",
+    "address": "58 Sample Street",
+    "postcode": "BT20 1AA",
+    "categories": [
+      "Gallery",
+      "Bar",
+      "Museum"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.634424,
+        54.657599
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-09T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-09T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000036"
+    },
+    "name": "Riverside Hotel Studio 55",
+    "town": "Coleraine",
+    "address": "143 Sample Street",
+    "postcode": "BT52 3AA",
+    "categories": [
+      "Hotel",
+      "Bakery",
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.642774,
+        55.123091
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-12T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-12T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000037"
+    },
+    "name": "North Restaurant Studio 56",
+    "town": "Enniskillen",
+    "address": "33 Sample Street",
+    "postcode": "BT74 6AA",
+    "categories": [
+      "Restaurant"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.653568,
+        54.358392
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 4.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-15T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-15T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000038"
+    },
+    "name": "Bright Gallery Studio 57",
+    "town": "Belfast",
+    "address": "170 Sample Street",
+    "postcode": "BT1 5AA",
+    "categories": [
+      "Gallery",
+      "Museum",
+      "Bakery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.933007,
+        54.607569
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-18T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-18T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000039"
+    },
+    "name": "Old Town Restaurant Studio 58",
+    "town": "Derry",
+    "address": "89 Sample Street",
+    "postcode": "BT48 9AA",
+    "categories": [
+      "Restaurant",
+      "Deli"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.322435,
+        54.990509
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-21T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-21T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003a"
+    },
+    "name": "Copper Restaurant Studio 59",
+    "town": "Lisburn",
+    "address": "75 Sample Street",
+    "postcode": "BT28 6AA",
+    "categories": [
+      "Restaurant",
+      "Cafe"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.067114,
+        54.499736
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-24T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-24T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003b"
+    },
+    "name": "Willow Grocery Studio 60",
+    "town": "Newry",
+    "address": "9 Sample Street",
+    "postcode": "BT34 9AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.322809,
+        54.191142
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-27T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-27T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003c"
+    },
+    "name": "Harbour Deli Corner 61",
+    "town": "Armagh",
+    "address": "71 Sample Street",
+    "postcode": "BT61 6AA",
+    "categories": [
+      "Deli",
+      "Restaurant",
+      "Gallery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.632829,
+        54.369644
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-06-30T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-06-30T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003d"
+    },
+    "name": "Linen Hotel Corner 62",
+    "town": "Bangor",
+    "address": "83 Sample Street",
+    "postcode": "BT20 5AA",
+    "categories": [
+      "Hotel",
+      "Cafe"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.661866,
+        54.643991
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 4.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-03T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-03T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003e"
+    },
+    "name": "Meadow Cafe Corner 63",
+    "town": "Coleraine",
+    "address": "105 Sample Street",
+    "postcode": "BT52 7AA",
+    "categories": [
+      "Cafe",
+      "Hotel",
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.652247,
+        55.135752
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-06T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-06T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000003f"
+    },
+    "name": "Oak Bakery Corner 64",
+    "town": "Enniskillen",
+    "address": "173 Sample Street",
+    "postcode": "BT74 7AA",
+    "categories": [
+      "Bakery",
+      "Bookshop",
+      "Bar"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.647429,
+        54.354971
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-09T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-09T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000040"
+    },
+    "name": "Riverside Bakery Corner 65",
+    "town": "Belfast",
+    "address": "110 Sample Street",
+    "postcode": "BT1 2AA",
+    "categories": [
+      "Bakery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.901134,
+        54.610984
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-12T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-12T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000041"
+    },
+    "name": "North Bar Corner 66",
+    "town": "Derry",
+    "address": "99 Sample Street",
+    "postcode": "BT48 3AA",
+    "categories": [
+      "Bar"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.343027,
+        54.989368
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-15T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-15T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000042"
+    },
+    "name": "Bright Gallery Corner 67",
+    "town": "Lisburn",
+    "address": "145 Sample Street",
+    "postcode": "BT28 8AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.067916,
+        54.539178
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-18T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-18T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000043"
+    },
+    "name": "Old Town Gallery Corner 68",
+    "town": "Newry",
+    "address": "12 Sample Street",
+    "postcode": "BT34 6AA",
+    "categories": [
+      "Gallery",
+      "Deli",
+      "Hotel"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.333378,
+        54.16659
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-21T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-21T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000044"
+    },
+    "name": "Copper Bakery Corner 69",
+    "town": "Armagh",
+    "address": "88 Sample Street",
+    "postcode": "BT61 3AA",
+    "categories": [
+      "Bakery",
+      "Cafe"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.637094,
+        54.343503
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-24T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-24T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000045"
+    },
+    "name": "Willow Bookshop Corner 70",
+    "town": "Bangor",
+    "address": "83 Sample Street",
+    "postcode": "BT20 2AA",
+    "categories": [
+      "Bookshop",
+      "Restaurant"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.702522,
+        54.656427
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-27T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-27T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000046"
+    },
+    "name": "Harbour Cafe Larder 71",
+    "town": "Coleraine",
+    "address": "56 Sample Street",
+    "postcode": "BT52 5AA",
+    "categories": [
+      "Cafe",
+      "Museum",
+      "Bakery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.651844,
+        55.143751
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-07-30T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-07-30T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000047"
+    },
+    "name": "Linen Gallery Larder 72",
+    "town": "Enniskillen",
+    "address": "67 Sample Street",
+    "postcode": "BT74 7AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.618058,
+        54.355453
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-02T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-02T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000048"
+    },
+    "name": "Meadow Bakery Larder 73",
+    "town": "Belfast",
+    "address": "89 Sample Street",
+    "postcode": "BT1 5AA",
+    "categories": [
+      "Bakery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.934997,
+        54.587935
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-05T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-05T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000049"
+    },
+    "name": "Oak Museum Larder 74",
+    "town": "Derry",
+    "address": "3 Sample Street",
+    "postcode": "BT48 6AA",
+    "categories": [
+      "Museum",
+      "Deli"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.338609,
+        54.999027
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-08T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-08T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004a"
+    },
+    "name": "Riverside Gallery Larder 75",
+    "town": "Lisburn",
+    "address": "78 Sample Street",
+    "postcode": "BT28 2AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.052809,
+        54.511865
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-11T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-11T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004b"
+    },
+    "name": "North Cafe Larder 76",
+    "town": "Newry",
+    "address": "104 Sample Street",
+    "postcode": "BT34 4AA",
+    "categories": [
+      "Cafe",
+      "Restaurant",
+      "Bar"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.311038,
+        54.193259
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-14T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-14T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004c"
+    },
+    "name": "Bright Museum Larder 77",
+    "town": "Armagh",
+    "address": "102 Sample Street",
+    "postcode": "BT61 7AA",
+    "categories": [
+      "Museum",
+      "Hotel"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.647038,
+        54.332119
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-17T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-17T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004d"
+    },
+    "name": "Old Town Restaurant Larder 78",
+    "town": "Bangor",
+    "address": "150 Sample Street",
+    "postcode": "BT20 7AA",
+    "categories": [
+      "Restaurant"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.690643,
+        54.677772
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-20T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-20T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004e"
+    },
+    "name": "Copper Grocery Larder 79",
+    "town": "Coleraine",
+    "address": "90 Sample Street",
+    "postcode": "BT52 2AA",
+    "categories": [
+      "Grocery",
+      "Bar",
+      "Deli"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.698534,
+        55.140997
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-23T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-23T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000004f"
+    },
+    "name": "Willow Hotel Larder 80",
+    "town": "Enniskillen",
+    "address": "146 Sample Street",
+    "postcode": "BT74 1AA",
+    "categories": [
+      "Hotel"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.623887,
+        54.344396
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-26T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-26T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000050"
+    },
+    "name": "Harbour Hotel Social 81",
+    "town": "Belfast",
+    "address": "5 Sample Street",
+    "postcode": "BT1 6AA",
+    "categories": [
+      "Hotel",
+      "Deli"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.915236,
+        54.604563
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-08-29T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-08-29T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000051"
+    },
+    "name": "Linen Grocery Social 82",
+    "town": "Derry",
+    "address": "145 Sample Street",
+    "postcode": "BT48 2AA",
+    "categories": [
+      "Grocery",
+      "Deli"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.309204,
+        54.982014
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-01T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-01T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000052"
+    },
+    "name": "Meadow Cafe Social 83",
+    "town": "Lisburn",
+    "address": "117 Sample Street",
+    "postcode": "BT28 3AA",
+    "categories": [
+      "Cafe",
+      "Hotel"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.060529,
+        54.499169
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-04T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-04T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000053"
+    },
+    "name": "Oak Cafe Social 84",
+    "town": "Newry",
+    "address": "24 Sample Street",
+    "postcode": "BT34 4AA",
+    "categories": [
+      "Cafe",
+      "Bar"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.338342,
+        54.196423
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-07T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-07T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000054"
+    },
+    "name": "Riverside Bar Social 85",
+    "town": "Armagh",
+    "address": "76 Sample Street",
+    "postcode": "BT61 5AA",
+    "categories": [
+      "Bar",
+      "Museum"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.648883,
+        54.363331
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 1.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-10T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-10T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000055"
+    },
+    "name": "North Hotel Social 86",
+    "town": "Bangor",
+    "address": "10 Sample Street",
+    "postcode": "BT20 6AA",
+    "categories": [
+      "Hotel",
+      "Deli",
+      "Bakery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.645443,
+        54.630806
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-13T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-13T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000056"
+    },
+    "name": "Bright Restaurant Social 87",
+    "town": "Coleraine",
+    "address": "25 Sample Street",
+    "postcode": "BT52 6AA",
+    "categories": [
+      "Restaurant",
+      "Grocery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.673617,
+        55.12545
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-16T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-16T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000057"
+    },
+    "name": "Old Town Bookshop Social 88",
+    "town": "Enniskillen",
+    "address": "149 Sample Street",
+    "postcode": "BT74 8AA",
+    "categories": [
+      "Bookshop",
+      "Bar",
+      "Deli"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.653013,
+        54.363596
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-19T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-19T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000058"
+    },
+    "name": "Copper Bar Social 89",
+    "town": "Belfast",
+    "address": "178 Sample Street",
+    "postcode": "BT1 9AA",
+    "categories": [
+      "Bar",
+      "Museum"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.956407,
+        54.59133
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-22T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-22T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000059"
+    },
+    "name": "Willow Hotel Social 90",
+    "town": "Derry",
+    "address": "24 Sample Street",
+    "postcode": "BT48 1AA",
+    "categories": [
+      "Hotel",
+      "Deli"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.294722,
+        54.992135
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 1.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-25T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-25T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005a"
+    },
+    "name": "Harbour Hotel Garden 91",
+    "town": "Lisburn",
+    "address": "75 Sample Street",
+    "postcode": "BT28 3AA",
+    "categories": [
+      "Hotel",
+      "Deli",
+      "Bar"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.086434,
+        54.515184
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-09-28T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-09-28T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005b"
+    },
+    "name": "Linen Grocery Garden 92",
+    "town": "Newry",
+    "address": "111 Sample Street",
+    "postcode": "BT34 7AA",
+    "categories": [
+      "Grocery",
+      "Bakery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.304393,
+        54.186167
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-01T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-01T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005c"
+    },
+    "name": "Meadow Bakery Garden 93",
+    "town": "Armagh",
+    "address": "37 Sample Street",
+    "postcode": "BT61 9AA",
+    "categories": [
+      "Bakery",
+      "Grocery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.632981,
+        54.33938
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-04T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-04T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005d"
+    },
+    "name": "Oak Cafe Garden 94",
+    "town": "Bangor",
+    "address": "40 Sample Street",
+    "postcode": "BT20 1AA",
+    "categories": [
+      "Cafe",
+      "Grocery",
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.650348,
+        54.6308
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-07T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-07T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005e"
+    },
+    "name": "Riverside Grocery Garden 95",
+    "town": "Coleraine",
+    "address": "159 Sample Street",
+    "postcode": "BT52 1AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.709126,
+        55.140818
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-10T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-10T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000005f"
+    },
+    "name": "North Restaurant Garden 96",
+    "town": "Enniskillen",
+    "address": "59 Sample Street",
+    "postcode": "BT74 8AA",
+    "categories": [
+      "Restaurant",
+      "Grocery",
+      "Cafe"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.636571,
+        54.320649
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-13T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-13T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000060"
+    },
+    "name": "Bright Gallery Garden 97",
+    "town": "Belfast",
+    "address": "49 Sample Street",
+    "postcode": "BT1 1AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.902161,
+        54.619181
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-16T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-16T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000061"
+    },
+    "name": "Old Town Deli Garden 98",
+    "town": "Derry",
+    "address": "43 Sample Street",
+    "postcode": "BT48 8AA",
+    "categories": [
+      "Deli",
+      "Hotel"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.321747,
+        55.006002
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-19T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-19T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000062"
+    },
+    "name": "Copper Hotel Garden 99",
+    "town": "Lisburn",
+    "address": "139 Sample Street",
+    "postcode": "BT28 3AA",
+    "categories": [
+      "Hotel",
+      "Museum",
+      "Bakery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.025832,
+        54.529001
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-22T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-22T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000063"
+    },
+    "name": "Willow Grocery Garden 100",
+    "town": "Newry",
+    "address": "45 Sample Street",
+    "postcode": "BT34 6AA",
+    "categories": [
+      "Grocery",
+      "Hotel",
+      "Restaurant"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.343558,
+        54.194976
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-25T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-25T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000064"
+    },
+    "name": "Harbour Hotel Kitchen 101",
+    "town": "Armagh",
+    "address": "122 Sample Street",
+    "postcode": "BT61 9AA",
+    "categories": [
+      "Hotel",
+      "Deli"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.673186,
+        54.361636
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-28T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-28T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000065"
+    },
+    "name": "Linen Cafe Kitchen 102",
+    "town": "Bangor",
+    "address": "91 Sample Street",
+    "postcode": "BT20 4AA",
+    "categories": [
+      "Cafe",
+      "Restaurant",
+      "Grocery"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.670253,
+        54.670452
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-10-31T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-10-31T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000066"
+    },
+    "name": "Meadow Restaurant Kitchen 103",
+    "town": "Coleraine",
+    "address": "45 Sample Street",
+    "postcode": "BT52 1AA",
+    "categories": [
+      "Restaurant",
+      "Deli"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.677163,
+        55.154523
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-03T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-03T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000067"
+    },
+    "name": "Oak Cafe Kitchen 104",
+    "town": "Enniskillen",
+    "address": "87 Sample Street",
+    "postcode": "BT74 7AA",
+    "categories": [
+      "Cafe",
+      "Gallery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.670629,
+        54.325433
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-06T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-06T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000068"
+    },
+    "name": "Riverside Cafe Kitchen 105",
+    "town": "Belfast",
+    "address": "41 Sample Street",
+    "postcode": "BT1 8AA",
+    "categories": [
+      "Cafe"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.914892,
+        54.590089
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-09T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-09T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000069"
+    },
+    "name": "North Cafe Kitchen 106",
+    "town": "Derry",
+    "address": "166 Sample Street",
+    "postcode": "BT48 1AA",
+    "categories": [
+      "Cafe"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.302631,
+        54.989851
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-12T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-12T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006a"
+    },
+    "name": "Bright Hotel Kitchen 107",
+    "town": "Lisburn",
+    "address": "106 Sample Street",
+    "postcode": "BT28 1AA",
+    "categories": [
+      "Hotel",
+      "Restaurant"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.033314,
+        54.51798
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 4.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-15T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-15T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006b"
+    },
+    "name": "Old Town Grocery Kitchen 108",
+    "town": "Newry",
+    "address": "5 Sample Street",
+    "postcode": "BT34 1AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.369708,
+        54.195051
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-18T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-18T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006c"
+    },
+    "name": "Copper Restaurant Kitchen 109",
+    "town": "Armagh",
+    "address": "61 Sample Street",
+    "postcode": "BT61 7AA",
+    "categories": [
+      "Restaurant",
+      "Deli"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.629142,
+        54.334852
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-21T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-21T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006d"
+    },
+    "name": "Willow Grocery Kitchen 110",
+    "town": "Bangor",
+    "address": "67 Sample Street",
+    "postcode": "BT20 5AA",
+    "categories": [
+      "Grocery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.680811,
+        54.643894
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-24T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-24T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006e"
+    },
+    "name": "Harbour Bakery House 111",
+    "town": "Coleraine",
+    "address": "163 Sample Street",
+    "postcode": "BT52 3AA",
+    "categories": [
+      "Bakery",
+      "Bar"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.699547,
+        55.11434
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 3.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-27T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-27T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b0000000000000000000006f"
+    },
+    "name": "Linen Gallery House 112",
+    "town": "Enniskillen",
+    "address": "174 Sample Street",
+    "postcode": "BT74 1AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.625139,
+        54.363693
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-11-30T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-11-30T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000070"
+    },
+    "name": "Meadow Gallery House 113",
+    "town": "Belfast",
+    "address": "143 Sample Street",
+    "postcode": "BT1 6AA",
+    "categories": [
+      "Gallery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.923671,
+        54.587233
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-03T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-03T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000071"
+    },
+    "name": "Oak Gallery House 114",
+    "town": "Derry",
+    "address": "134 Sample Street",
+    "postcode": "BT48 3AA",
+    "categories": [
+      "Gallery",
+      "Deli",
+      "Bakery"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.28904,
+        54.985705
+      ]
+    },
+    "price_level": 4,
+    "active": true,
+    "rating": 1.6,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-06T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-06T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000072"
+    },
+    "name": "Riverside Grocery House 115",
+    "town": "Lisburn",
+    "address": "145 Sample Street",
+    "postcode": "BT28 5AA",
+    "categories": [
+      "Grocery",
+      "Bakery",
+      "Bar"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.043568,
+        54.500784
+      ]
+    },
+    "price_level": 2,
+    "active": true,
+    "rating": 2.4,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-09T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-09T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000073"
+    },
+    "name": "North Bakery House 116",
+    "town": "Newry",
+    "address": "77 Sample Street",
+    "postcode": "BT34 6AA",
+    "categories": [
+      "Bakery"
+    ],
+    "description": "Relaxed space for food, drink and community events.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.354106,
+        54.154486
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 3.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-12T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-12T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000074"
+    },
+    "name": "Bright Museum House 117",
+    "town": "Armagh",
+    "address": "123 Sample Street",
+    "postcode": "BT61 8AA",
+    "categories": [
+      "Museum"
+    ],
+    "description": "Independent local business with seasonal produce.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.626975,
+        54.327091
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-15T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-15T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000075"
+    },
+    "name": "Old Town Hotel House 118",
+    "town": "Bangor",
+    "address": "56 Sample Street",
+    "postcode": "BT20 4AA",
+    "categories": [
+      "Hotel",
+      "Cafe",
+      "Museum"
+    ],
+    "description": "Family-run destination with a strong local identity.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -5.654315,
+        54.674404
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.0,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-18T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-18T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000076"
+    },
+    "name": "Copper Hotel House 119",
+    "town": "Coleraine",
+    "address": "102 Sample Street",
+    "postcode": "BT52 8AA",
+    "categories": [
+      "Hotel",
+      "Grocery"
+    ],
+    "description": "Small team offering carefully selected products.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -6.653633,
+        55.134142
+      ]
+    },
+    "price_level": 1,
+    "active": true,
+    "rating": 2.8,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-21T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-21T00:00:00Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b00000000000000000000077"
+    },
+    "name": "Willow Bakery House 120",
+    "town": "Enniskillen",
+    "address": "173 Sample Street",
+    "postcode": "BT74 5AA",
+    "categories": [
+      "Bakery",
+      "Bookshop",
+      "Cafe"
+    ],
+    "description": "Neighbourhood venue focused on accessible service.",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -7.66527,
+        54.355365
+      ]
+    },
+    "price_level": 3,
+    "active": true,
+    "rating": 4.2,
+    "review_count": 5,
+    "created_at": {
+      "$date": "2025-12-24T00:00:00Z"
+    },
+    "updated_at": {
+      "$date": "2025-12-24T00:00:00Z"
+    }
+  }
+]
